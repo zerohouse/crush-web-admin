@@ -1,0 +1,43 @@
+<div class="container users">
+    <h1>결제 로그</h1>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>결제유저</th>
+            <th>성별</th>
+            <th>결제상품</th>
+            <th>결제금액</th>
+            <th>주문번호</th>
+            <th>결제시간</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="log in logs">
+            <th scope="row">{{log.id}}</th>
+            <td>{{log.user}}</td>
+            <td>{{log.user.gender}}</td>
+            <td>{{log.product}}</td>
+            <td>{{log.price}}</td>
+            <td>{{log.orderId}}</td>
+            <td>{{log.purchasedAt | date}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <nav aria-label="Page navigation" ng-if="size>0">
+        <ul class="pagination">
+            <li>
+                <a href="#" aria-label="Previous" ng-click="prevPage()">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li ng-class="{active:query.page===i}" ng-repeat="i in (size/query.size).toArray() | limitTo : 20" ng-click="query.page=i">
+                <a>{{i+1}}</a></li>
+            <li>
+                <a href="#" aria-label="Next" ng-click="nextPage()">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>

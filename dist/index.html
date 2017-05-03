@@ -1,0 +1,48 @@
+<!doctype html>
+<html ng-app="app">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=11"/>
+    <meta charset="utf-8">
+    <title>그당반 관리자</title>
+    <meta name="description" content="CrushAdmin"/>
+    <meta name="keywords" content="Kewords"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta property="og:image" content="CrushAdmin image"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@CrushAdmin"/>
+    <meta name="twitter:creator" content="@CrushAdmin"/>
+    <meta name="twitter:title" content="CrushAdmin"/>
+    <meta name="twitter:description"
+          content="설명"/>
+    <meta property="twitter:image" content="메타태그"/>
+    <link rel="shortcut icon" type="image/ico" href="/images/favicon.png"/>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+
+    <style>
+        [ng-cloak] {
+            display: none !important;
+        }
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-shim.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js"></script>
+
+    <script src="/scripts/vendor.js"></script>
+
+    <script src="/scripts/scripts.js"></script>
+
+    <link rel="stylesheet" href="/styles/vendor.css">
+    <link rel="stylesheet" href="/styles/main.css">
+
+    <!-- 직접 관리할 스타일시트 -->
+    <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet" type="text/css">
+</head>
+<body ng-cloak layout="column">
+<nav ng-include="'/part/nav/nav.html'"></nav>
+<!-- Contents -->
+<div style="padding-bottom: 30px" ui-view class="flex"></div>
+</body>
+</html>

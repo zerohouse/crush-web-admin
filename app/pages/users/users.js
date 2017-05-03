@@ -10,8 +10,13 @@
         $scope.users = [];
         $scope.sizes = [10, 30, 50];
 
+
+        var params = {};
         $scope.more = function () {
-            $ajax.get('/admin/users', $scope.query).then(function (response) {
+            if (angular.equals(params, $scope.query))
+                return;
+            angular.copy($scope.query, params);
+            $ajax.get('/admin/users', params).then(function (response) {
                 $scope.users = response.list;
                 $scope.size = response.size;
             });

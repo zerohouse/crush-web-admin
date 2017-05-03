@@ -1,0 +1,49 @@
+<div class="container">
+    <h5>신규 가입</h5>
+    <canvas id="line" class="chart chart-line" chart-data="data"
+            chart-labels="labels" chart-series="series" chart-options="options"
+            chart-dataset-override="datasetOverride" chart-click="onClick">
+    </canvas>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>일자</th>
+            <th>전체 유저(남)</th>
+            <th>전체 유저(여)</th>
+            <th>프로필 유저(남)</th>
+            <th>프로필 유저(여)</th>
+            <th>신규 가입(남)</th>
+            <th>신규 프로필전환(남)</th>
+            <th>신규 가입(여)</th>
+            <th>신규 프로필전환(여)</th>
+            <th>라이크 건수</th>
+            <th>응답수락</th>
+            <th>유저평가</th>
+            <th>충전 포인트(버찌)</th>
+            <th>사용 포인트(버찌)</th>
+            <th>결제건수</th>
+            <th>결제금액</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="log in logs">
+            <th scope="row">{{log.day}}</th>
+            <td>{{log.muserCount}}</td>
+            <td>{{log.fuserCount}}</td>
+            <td>{{log.mprofilePassedUserCount}}</td>
+            <td>{{log.fprofilePassedUserCount}}</td>
+            <td>{{log.mtodayNewUserCount}}</td>
+            <td>{{log.mprofilePassedTodayUserCount}}</td>
+            <td>{{log.ftodayNewUserCount}}</td>
+            <td>{{log.fprofilePassedTodayUserCount}}</td>
+            <td>{{log.todayLikeCount}}</td>
+            <td>{{log.todayLikeRespondCount}}</td>
+            <td>{{log.todayFavorCount}}</td>
+            <td>{{log.chargedPoint}}</td>
+            <td>{{log.usedPoint}}</td>
+            <td>{{log.paidCount}}</td>
+            <td>{{log.paidPrice}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,65 @@
+<div class="container users">
+    <h1>버찌 로그</h1>
+    <div class="row">
+        <form class="form-inline">
+            <div class="form-group col-md-3 col-xs-4">
+                <label>사용내역 : </label>
+                <select ng-model="query.event" class="form-control">
+                    <option value="">전체</option>
+                    <option value="LIKE_TODAYUSER">오늘의카드 라이크</option>
+                    <option value="LIKE_HISTORYUSER">지나간카드 라이크</option>
+                    <option value="OPEN_CARDIMAGE">카드이미지 열기</option>
+                    <option value="OPEN_MORE_TODAYCARD">오늘의카드 더보기</option>
+                    <option value="OPEN_CUSTOM_TODAY">맞춤 투데이 더보기</option>
+                    <option value="OPEN_LOCAL_TODAYCARD">지역별 투데이카드</option>
+                    <option value="SMS_INVITE">SMS 초대</option>
+                    <option value="STORE_REVIEW">리뷰쓰러가기</option>
+                    <option value="UNBLOCK_CHATROOM">채팅잠금 해제</option>
+                </select>
+            </div>
+            <div class="form-group col-md-4 col-xs-4">
+                <label>UserID : </label>
+                <input type="text" ng-model="query.userid" class="form-control" value="">
+            </div>
+            <button ng-click="search()" class="btn btn-default col-md-1 col-xs-2">Search</button>
+        </form>
+    </div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>userId</th>
+            <th>사용내역</th>
+            <th>증감포인트</th>
+            <th>사용시간</th>
+            <th>잔여포인트</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="log in logs">
+            <th scope="row">{{log.id}}</th>
+            <td>{{log.userid}}</td>
+            <td>{{log.description}}</td>
+            <td>{{log.pointdiff}}</td>
+            <td>{{log.regDttm | date}}</td>
+            <td>{{log.adjustpoint}}</td>
+        </tr>
+        </tbody>
+    </table>
+    <nav aria-label="Page navigation" ng-if="size>0">
+        <ul class="pagination">
+            <li>
+                <a href="#" aria-label="Previous" ng-click="prevPage()">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li ng-class="{active:query.page===i}" ng-repeat="i in (size/query.size).toArray() | limitTo : 20" ng-click="query.page=i">
+                <a>{{i+1}}</a></li>
+            <li>
+                <a href="#" aria-label="Next" ng-click="nextPage()">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
