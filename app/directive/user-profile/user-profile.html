@@ -1,0 +1,5 @@
+<a ui-sref="user({id:user.id})">{{user.id}}</a> {{user.nickName||'이름없음'}} ({{user.email||'이메일 없음'}})
+<div>
+    <img ng-src="{{img.src}}" ng-class="{dimmed:!img.open}" style="width:50px;height:50px;border-radius:50%"
+         ng-repeat=" img in user.profileImages">
+</div>

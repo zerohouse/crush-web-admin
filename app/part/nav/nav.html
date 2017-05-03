@@ -1,0 +1,36 @@
+<nav class="navbar navbar-default">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" ng-click="isNavCollapsed = !isNavCollapsed"
+                    ng-init="isNavCollapsed=true">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">그당반 관리자</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" uib-collapse="isNavCollapsed" style="overflow:hidden">
+            <ul class="nav navbar-nav navbar-right">
+                <li uib-dropdown class="dropdown">
+                    <a href="#" uib-dropdown-toggle class="dropdown-toggle">관리자<span class="caret"></span></a>
+                    <ul uib-dropdown-menu class="dropdown-menu">
+                        <li><a ui-sref="dailyLog">현황</a></li>
+                        <li><a ui-sref="users">전체 회원</a></li>
+                        <li><a ui-sref="reviews">프로필 심사</a></li>
+                    </ul>
+                </li>
+                <li ng-if="!user.id"><a ng-click="loginPopup()">로그인</a></li>
+                <li uib-dropdown class="dropdown" ng-if="user.id">
+                    <a href="#" uib-dropdown-toggle class="dropdown-toggle">{{user.email}} <span
+                            class="caret"></span></a>
+                    <ul uib-dropdown-menu class="dropdown-menu">
+                        <li><a ng-click="logout()">로그아웃</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>

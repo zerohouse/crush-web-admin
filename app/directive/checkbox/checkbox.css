@@ -1,0 +1,16 @@
+checkbox {
+  padding-right: 25px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+checkbox * {
+  vertical-align: middle;
+}
+checkbox .checkbox {
+  padding-left: 28px;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+checkbox .checkbox i {
+  font-size: 24px;
+}

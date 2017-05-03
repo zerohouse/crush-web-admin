@@ -1,0 +1,50 @@
+<div class="container user-detail">
+    <h3><a ui-sref="user({id:user.id})">사용자 ID : {{user.id}}</a></h3>
+    <h5> 리뷰 요청 이미지 </h5>
+    <img ng-repeat="picture in user.requested.imageList" style="width:200px;height:200px" ng-src="{{picture.imageUrl}}">
+    <h5> 현재 프로필 이미지 </h5>
+    <img ng-repeat="picture in user.now.imageList" style="width:200px;height:200px" ng-src="{{picture.imageUrl}}">
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th class="col-md-2">타입</th>
+                <th class="col-md-3">리뷰 요청</th>
+                <th class="col-md-3">현재</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr now-and-requested label="이름" data="user" key="name"></tr>
+            <tr now-and-requested label="생년" data="user" key="birthDate"></tr>
+            <tr now-and-requested label="혈액형" data="user" key="bloodType"></tr>
+            <tr now-and-requested label="지역" data="user" key="hometown"></tr>
+            <tr now-and-requested label="이상형" data="user" key="idealType"></tr>
+            <tr now-and-requested label="종교" data="user" key="religion"></tr>
+            <tr now-and-requested label="체형" data="user" key="bodyType"></tr>
+            <tr now-and-requested label="키" data="user" key="height"></tr>
+            <tr now-and-requested label="학교" data="user" key="school"></tr>
+            <tr>
+                <td>등록일자</td>
+                <td>{{user.requested.reviewRegisteredAt | date}}</td>
+                <td>{{user.now.reviewRegisteredAt | date}}</td>
+            </tr>
+            <tr>
+                <td>심사 타입</td>
+                <td colspan="2">{{user.reviewType}}</td>
+            </tr>
+            </tbody>
+        </table>
+        <b>{{user.result}} {{user.requested.reject_description ? '거절 : '+user.requested.reject_description:''}}</b>
+        <div ng-if="user.reviewType==='REVIEW'">
+            <a ng-click="approve(user,1)" class="btn btn-default" role="button">가입만(1)</a>
+            <a ng-click="approve(user,2)" class="btn btn-default" role="button">평가(3)</a> <br>
+            <a ng-click="approve(user,4)" class="btn btn-default" role="button">소개,평가(4)</a>
+            <a ng-click="approve(user,7)" class="btn btn-default" role="button">인기피처링(7)</a> <br>
+            <a ng-click="approve(user)" class="btn btn-danger" role="button">거절</a>
+        </div>
+        <div ng-if="user.reviewType==='UPDATE'">
+            <a ng-click="approve(user,1)" class="btn btn-default" role="button">수락</a>
+            <a ng-click="approve(user)" class="btn btn-danger" role="button">거절</a>
+        </div>
+    </div>
+</div>

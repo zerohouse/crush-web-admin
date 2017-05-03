@@ -1,0 +1,9 @@
+user-profile {
+  border-top: 1px;
+  padding-top: 10px;
+  margin-top: 10px;
+  display: block;
+}
+user-profile .dimmed {
+  opacity: 0.3;
+}

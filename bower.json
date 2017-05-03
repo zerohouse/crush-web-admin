@@ -1,0 +1,26 @@
+{
+  "name": "crush_Admin",
+  "version": "0.0.1",
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "angular": "~1.6.4",
+    "angular-essential": "*",
+    "angular-sanitize": "^1.6.4",
+    "angular-animate": "^1.6.4",
+    "angular-messages": "^1.6.4",
+    "moment": "^2.14.0",
+    "vex": "^3.0.0",
+    "angular-toastr": "^1.7.0",
+    "angular-ui-router": "^0.4.2",
+    "angular-material": "^1.1.4",
+    "ng-file-upload": "^12.2.13",
+    "angular-chart.js": "^1.1.1"
+  },
+  "authors": [
+    "dev <parksungho86@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT"
+}

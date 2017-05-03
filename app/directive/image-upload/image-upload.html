@@ -1,0 +1,5 @@
+<div ngf-select ng-model="file" ngf-change="upload(file)">
+    <span class="btn btn-info" ng-if="!ngModel">{{placeholder||'이미지 업로드'}}</span>
+    <img ng-if="ngModel" ng-src="{{ngModel}}">
+</div>
+

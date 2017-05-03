@@ -1,0 +1,34 @@
+<h5>{{label}}</h5>
+<input-and-label label="닉네임" ng-model="userinformation.nickName"></input-and-label>
+<drop-options ng-model="userinformation.age" label="나이" options="options.AGE"></drop-options>
+<drop-options ng-model="userinformation.height" label="키" options="options.HEIGHT"></drop-options>
+
+<drop-options ng-model="userinformation.school" label="학교" options="options.SCHOOL"></drop-options>
+<drop-options ng-model="userinformation.job" label="직업" options="options.JOB"></drop-options>
+<input-and-label label="직장" ng-model="userinformation.office"></input-and-label>
+
+<drop-options ng-model="userinformation.idealType" label="이상형" options="options.IDEAL_TYPE"></drop-options>
+<drop-options ng-model="userinformation.district" label="지역" options="options.DISTRICT"></drop-options>
+<drop-options ng-model="userinformation.bodyType" ng-if="gender==='MALE'" label="체형"
+              options="options.BODY_TYPE_MALE"></drop-options>
+<drop-options ng-model="userinformation.bodyType" ng-if="gender==='FEMALE'" label="체형"
+              options="options.BODY_TYPE_FEMALE"></drop-options>
+
+<drop-options ng-model="userinformation.bloodType" label="혈액형" options="options.BLOOD_TYPE"></drop-options>
+<drop-options ng-model="userinformation.religion" label="종교" options="options.RELIGION"></drop-options>
+
+<multi-options ng-model="userinformation.interests" label="관심있는 것들" options="options.INTERESTS"></multi-options>
+<multi-options ng-model="userinformation.likes" label="좋아하는 것들" options="options.LIKES"></multi-options>
+<multi-options ng-model="userinformation.charms" ng-if="gender==='MALE'"  label="매력" options="options.CHARMS_MALE"></multi-options>
+<multi-options ng-model="userinformation.charms" ng-if="gender==='FEMALE'" label="매력" options="options.CHARMS_FEMALE"></multi-options>
+
+<div style="display:block;overflow: auto">
+    <h5>
+        프로필 이미지
+        <div class="btn btn-primary" ng-click="newPicture()">이미지 추가</div>
+    </h5>
+    <div ng-repeat="picture in userinformation.pictures" class="profile-image">
+        <image-upload ng-model="picture.src" file-type="PROFILE_IMAGE"></image-upload>
+        <a class="btn btn-danger" ng-click="userinformation.pictures.remove(picture)">삭제</a>
+    </div>
+</div>

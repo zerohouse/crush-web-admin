@@ -1,0 +1,6 @@
+.user-detail input-and-label,
+.user-detail drop-options,
+.user-detail gender {
+  display: block;
+  margin-bottom: 20px;
+}

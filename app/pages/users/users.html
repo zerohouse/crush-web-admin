@@ -1,0 +1,103 @@
+<div class="container users">
+    <h1>전체 사용자</h1>
+    <form>
+        <div class="form-group">
+            <div class="col-md-9 col-xs-12">
+                <div class="form-group row">
+                    <label class="col-md-1 control-label">ID </label>
+                    <div class="col-md-2">
+                        <input type="text" class="form-control" ng-model="query.id">
+                    </div>
+                    <label class="col-md-1 control-label">Email</label>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" ng-model="query.email">
+                    </div>
+                    <label class="col-md-1 control-label">이름</label>
+                    <div class="col-md-2">
+                        <input type="text" class="form-control" ng-model="query.name">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group bottom0">
+            <div class="col-md-9 col-xs-12">
+                <div class="form-group row">
+                    <label class="col-md-1 col-xs-1 control-label">상태</label>
+                    <div class="col-md-2 col-xs-3">
+                        <select ng-model="query.status" class="form-control">
+                            <option value="">전체</option>
+                            <option value="N">활동중</option>
+                            <option value="P">가입만</option>
+                            <option value="W">심사중</option>
+                            <option value="S">휴면</option>
+                        </select>
+                    </div>
+                    <label class="col-md-1 col-xs-1 control-label">성별</label>
+                    <div class="col-md-2 col-xs-3">
+                        <select ng-model="query.gender" class="form-control">
+                            <option value="">전체</option>
+                            <option value="F">여자</option>
+                            <option value="M">남자</option>
+                        </select>
+                    </div>
+                    <label class="col-md-1 col-xs-1 control-label">한번에</label>
+                    <div class="col-md-2 col-xs-3">
+                        <select ng-model="query.size" ng-options="size as size for size in sizes" class="form-control">
+                        </select>
+                    </div>
+                    <button class="btn btn-default col-md-2 col-xs-2" ng-click="search()">Search</button>
+                </div>
+
+            </div>
+        </div>
+    </form>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Email</th>
+            <th>Main</th>
+            <th>이름</th>
+            <th>평점</th>
+            <th>성별</th>
+            <th>상태</th>
+            <th>등록일자</th>
+            <th>비고</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-if="users.length==0">
+            <td colspan="10">해당 검색 결과가 없습니다.</td>
+        </tr>
+        <tr ng-repeat="user in users">
+            <td><a ui-sref="user({id:user.id})">{{user.id}}</a></td>
+            <td>{{user.email}}</td>
+            <td><img img-default ng-src="{{user.mainImageUrl}}"></td>
+            <td>{{user.name}}</td>
+            <td>{{user.score}}</td>
+            <td>{{user.gender}}</td>
+            <td>{{user.status}}</td>
+            <td>{{user.regDttm | date}}</td>
+            <td>
+                <a ui-sref="user({id:user.id})" class="btn btn-default" role="button">보기</a>
+                <!--<a href="javascript:removeUser(188419);" class="btn btn-danger" id="deleteUser_188419" role="button">삭제</a>-->
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <nav aria-label="Page navigation" ng-if="size>0">
+        <ul class="pagination">
+            <li>
+                <a href="#" aria-label="Previous" ng-click="prevPage()">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li ng-class="{active:query.page===i}" ng-repeat="i in (size/query.size).toArray()" ng-click="query.page=i"><a>{{i+1}}</a></li>
+            <li>
+                <a href="#" aria-label="Next" ng-click="nextPage()">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>

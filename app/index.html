@@ -1,0 +1,147 @@
+<!doctype html>
+<html ng-app="app">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=11"/>
+    <meta charset="utf-8">
+    <title>그당반 관리자</title>
+    <meta name="description" content="CrushAdmin"/>
+    <meta name="keywords" content="Kewords"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta property="og:image" content="CrushAdmin image"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@CrushAdmin"/>
+    <meta name="twitter:creator" content="@CrushAdmin"/>
+    <meta name="twitter:title" content="CrushAdmin"/>
+    <meta name="twitter:description"
+          content="설명"/>
+    <meta property="twitter:image" content="메타태그"/>
+    <link rel="shortcut icon" type="image/ico" href="/images/favicon.png"/>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+
+    <style>
+        [ng-cloak] {
+            display: none !important;
+        }
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/es5-shim/4.5.7/es5-shim.min.js"></script>
+    <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.6/ace.js"></script>
+
+    <!-- build:js(.) /scripts/vendor.js -->
+    <!-- 직접 관리할 라이브러리 -->
+    <!-- 라이브러리 종료 -->
+    <!-- bower:js -->
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/angular-essential/angular-essential.js"></script>
+    <script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="/bower_components/angular-animate/angular-animate.js"></script>
+    <script src="/bower_components/angular-messages/angular-messages.js"></script>
+    <script src="/bower_components/moment/moment.js"></script>
+    <script src="/bower_components/vex/dist/js/vex.js"></script>
+    <script src="/bower_components/vex/dist/js/vex.combined.js"></script>
+    <script src="/bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+    <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="/bower_components/angular-aria/angular-aria.js"></script>
+    <script src="/bower_components/angular-material/angular-material.js"></script>
+    <script src="/bower_components/ng-file-upload/ng-file-upload.js"></script>
+    <script src="/bower_components/chart.js/dist/Chart.js"></script>
+    <script src="/bower_components/angular-chart.js/dist/angular-chart.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- build:js({.tmp,app}) /scripts/scripts.js -->
+    <!-- include: "type": "js", "files": "**/*.js" -->
+    <script src="/app.ie.polyfill.js"></script>
+    <script src="/app.js"></script>
+    <script src="/app.prototype.js"></script>
+    <script src="/config/ajax.js"></script>
+    <script src="/config/route.config.js"></script>
+    <script src="/config/route.js"></script>
+    <script src="/directive/autosize/autosize.directive.js"></script>
+    <script src="/directive/checkbox/checkbox.directive.js"></script>
+    <script src="/directive/drop-options/drop-options.js"></script>
+    <script src="/directive/gender/gender.js"></script>
+    <script src="/directive/image-upload/image-upload.js"></script>
+    <script src="/directive/img-default/img-default.js"></script>
+    <script src="/directive/input-and-label/input-and-label.js"></script>
+    <script src="/directive/multi-options/multi-options.js"></script>
+    <script src="/directive/radiobuttons/radiobutton.directive.js"></script>
+    <script src="/directive/radiobuttons/radiobuttons.directive.js"></script>
+    <script src="/directive/user-profile/user-profile.js"></script>
+    <script src="/directive/userinformation/userinformation.js"></script>
+    <script src="/filter/trustFilter.js"></script>
+    <script src="/lib/moment.ko.js"></script>
+    <script src="/lib/ui-bootstrap-custom-tpls-2.3.0.min.js"></script>
+    <script src="/pages/404/404.ctrl.js"></script>
+    <script src="/pages/log/daily/daily.js"></script>
+    <script src="/pages/review/review.js"></script>
+    <script src="/pages/review/td-now-and-requested.js"></script>
+    <script src="/pages/reviews/reviews.js"></script>
+    <script src="/pages/user/user.js"></script>
+    <script src="/pages/users/approval/approval.js"></script>
+    <script src="/pages/users/users.js"></script>
+    <script src="/pages/users/voice/voice.js"></script>
+    <script src="/service/pop.service.js"></script>
+    <script src="/service/popup/popup.service.js"></script>
+    <script src="/service/query.service.js"></script>
+    <script src="/service/review.service.js"></script>
+    <!-- /include -->
+    <!-- endbuild -->
+
+    <!-- build:css(.) /styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="/bower_components/vex/dist/css/vex.css" />
+    <link rel="stylesheet" href="/bower_components/vex/dist/css/vex-theme-bottom-right-corner.css" />
+    <link rel="stylesheet" href="/bower_components/vex/dist/css/vex-theme-default.css" />
+    <link rel="stylesheet" href="/bower_components/vex/dist/css/vex-theme-flat-attack.css" />
+    <link rel="stylesheet" href="/bower_components/vex/dist/css/vex-theme-os.css" />
+    <link rel="stylesheet" href="/bower_components/vex/dist/css/vex-theme-plain.css" />
+    <link rel="stylesheet" href="/bower_components/vex/dist/css/vex-theme-top.css" />
+    <link rel="stylesheet" href="/bower_components/vex/dist/css/vex-theme-wireframe.css" />
+    <link rel="stylesheet" href="/bower_components/angular-toastr/dist/angular-toastr.css" />
+    <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css({.tmp,app}) /styles/main.css -->
+    <!-- include: "type": "css", "files": "**/*.css" -->
+
+  <link href="/dialog/dialog.css" rel="stylesheet" type="text/css">
+    <link href="/directive/autosize/autosize.css" rel="stylesheet" type="text/css">
+    <link href="/directive/checkbox/checkbox.css" rel="stylesheet" type="text/css">
+    <link href="/directive/image-upload/image-upload.css" rel="stylesheet" type="text/css">
+    <link href="/directive/input-and-label/input-and-label.css" rel="stylesheet" type="text/css">
+    <link href="/directive/radiobuttons/radiobutton.css" rel="stylesheet" type="text/css">
+    <link href="/directive/user-profile/user-profile.css" rel="stylesheet" type="text/css">
+    <link href="/directive/userinformation/userinformation.css" rel="stylesheet" type="text/css">
+    <link href="/pages/404/404.css" rel="stylesheet" type="text/css">
+    <link href="/pages/user/profile-image.css" rel="stylesheet" type="text/css">
+    <link href="/pages/user/user-detail.css" rel="stylesheet" type="text/css">
+    <link href="/pages/users/profile-picture.css" rel="stylesheet" type="text/css">
+    <link href="/pages/users/users.css" rel="stylesheet" type="text/css">
+    <link href="/service/pop.css" rel="stylesheet" type="text/css">
+    <link href="/service/popup/popup.css" rel="stylesheet" type="text/css">
+    <link href="/style/global/bg.css" rel="stylesheet" type="text/css">
+    <link href="/style/global/btn.css" rel="stylesheet" type="text/css">
+    <link href="/style/global/color.css" rel="stylesheet" type="text/css">
+    <link href="/style/global/font.css" rel="stylesheet" type="text/css">
+    <link href="/style/global/margin.css" rel="stylesheet" type="text/css">
+    <link href="/style/global/override.css" rel="stylesheet" type="text/css">
+    <link href="/style/global/style.css" rel="stylesheet" type="text/css">
+    <link href="/style/global/vex.css" rel="stylesheet" type="text/css">
+    <link href="/style/loading.css" rel="stylesheet" type="text/css">
+    <!-- /include -->
+    <!-- endbuild -->
+
+    <!-- 직접 관리할 스타일시트 -->
+    <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet" type="text/css">
+</head>
+<body ng-cloak layout="column">
+<nav ng-include="'/part/nav/nav.html'"></nav>
+<!-- Contents -->
+<div style="padding-bottom: 30px" ui-view class="flex"></div>
+</body>
+</html>

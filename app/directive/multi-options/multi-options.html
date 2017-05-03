@@ -1,0 +1,10 @@
+<h5>{{label}}</h5>
+<div ng-repeat="option in ngModel">
+    <a class="btn btn-info">{{option.value}}</a>
+    <a class="btn btn-danger" ng-click="ngModel.remove(option)">삭제</a>
+</div>
+<div class="input-group">
+    <span class="input-group-addon">{{label}} 추가</span>
+    <select class="form-control" ng-model="select" ng-change="change(select)"
+            ng-options="option as option.value for option in options track by option.id"></select>
+</div>

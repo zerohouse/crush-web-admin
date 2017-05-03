@@ -1,0 +1,45 @@
+.dialog-body {
+  padding: 20px 30px;
+}
+.dialog-body input {
+  border-radius: 0;
+  border-bottom: none;
+}
+.dialog-body input:first-child {
+  margin-top: 10px;
+  border-radius: 6px 6px 0 0;
+}
+.dialog-body .btn {
+  border-radius: 0 0 6px 6px;
+  padding: 13px;
+  width: 100%;
+}
+.dialog-body .toggle-btn {
+  border-radius: 0;
+  padding: 10px 13px;
+  border-bottom: none;
+  width: 100%;
+  text-align: left;
+}
+.dialog-body .tail {
+  margin-top: 3px;
+  font-weight: 300;
+  font-size: 13px;
+  text-align: center;
+  width: 100%;
+}
+.dialog-body .error {
+  font-size: 12px;
+  text-align: center;
+}
+.vex-dialog-message .vex-body {
+  font-size: 15px;
+  line-height: 160%;
+}
+.vex-dialog-message .vex-body strong {
+  font-size: 120%;
+}
+.vex-content ul.nav.navbar-nav {
+  padding: 0;
+  border-bottom: none;
+}

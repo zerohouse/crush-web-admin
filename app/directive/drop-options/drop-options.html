@@ -1,0 +1,5 @@
+<div class="input-group">
+    <span class="input-group-addon">{{label}}</span>
+    <select class="form-control" ng-model="ngModel"
+            ng-options="option as option.extra ? option.extra + ' > ' + option.value : option.value for option in options track by option.code"></select>
+</div>

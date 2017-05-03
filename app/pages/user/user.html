@@ -1,0 +1,55 @@
+<div class="container user-detail">
+
+    <div class="input-group">
+        <input class="form-control" placeholder="id" ng-model="user.id">
+        <div class="input-group-addon" ng-click="getUserinfo(user.id)">ID로 조회</div>
+    </div>
+    <h3>사용자(ID:{{user.id}}) {{user.email}} <a class="btn btn-primary" ng-click="modify(user)">유저 업데이트(저장)</a></h3>
+    <input-and-label label="이메일" ng-model="user.email"></input-and-label>
+    <input-and-label label="이름" ng-model="user.name"></input-and-label>
+    <input-and-label label="점수" ng-model="user.score"></input-and-label>
+    <input-and-label label="생년" ng-model="user.birthDate"></input-and-label>
+
+    <div class="input-group margin-bottom-20">
+        <span class="input-group-addon">성별</span>
+        <select class="form-control" ng-model="user.gender"
+                ng-options="option as option for option in ['M','F']"></select>
+    </div>
+    <drop-options ng-model="user.bloodType" label="혈액형" options="options.bloodTypeCode"></drop-options>
+    <drop-options ng-model="user.hometown" label="지역" options="options.hometownCode"></drop-options>
+    <drop-options ng-model="user.job" label="직업" options="options.jobCode"></drop-options>
+    <drop-options ng-model="user.idealType" ng-if="user.gender==='M'" label="이상형"
+                  options="options.idealMTypeCode"></drop-options>
+    <drop-options ng-model="user.idealType" ng-if="user.gender==='F'" label="이상형"
+                  options="options.idealFTypeCode"></drop-options>
+    <drop-options ng-model="user.religion" label="종교" options="options.religionCode"></drop-options>
+    <drop-options ng-model="user.bodyType" ng-if="user.gender==='M'" label="체형"
+                  options="options.bodyMTypeCode"></drop-options>
+    <drop-options ng-model="user.bodyType" ng-if="user.gender==='F'" label="체형"
+                  options="options.bodyFTypeCode"></drop-options>
+
+    <input-and-label label="키" ng-model="user.height"></input-and-label>
+    <input-and-label label="학교" ng-model="user.school"></input-and-label>
+
+    <input-and-label label="평점" ng-model="user.score" readonly="true"></input-and-label>
+    <input-and-label label="버찌" ng-model="user.point" readonly="true"></input-and-label>
+
+    <input-and-label label="상태" ng-model="user.status" readonly="true"></input-and-label>
+    <input-and-label label="등록일자" ng-value="user.joinDttm | date" readonly="true"></input-and-label>
+    <input-and-label label="수정일자" ng-value="user.updateDttm | date" type="date" readonly="true"></input-and-label>
+    <input-and-label label="마지막 로그인" ng-value="user.lastLoggedAt  | date" readonly="true"></input-and-label>
+
+
+    <div>
+        <h5>
+            프로필 이미지
+            <div class="btn btn-primary" ng-click="newPicture()">이미지 추가</div>
+        </h5>
+        <div ng-repeat="picture in user.imageInfoList" class="profile-image">
+            <image-upload ng-model="picture.imageUrl" file-type="PROFILE_IMAGE"></image-upload>
+            <a class="btn btn-danger" ng-click="user.imageInfoList.remove(picture)">삭제</a>
+        </div>
+    </div>
+
+
+</div>

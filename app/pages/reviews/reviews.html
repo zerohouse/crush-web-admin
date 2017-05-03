@@ -1,0 +1,90 @@
+<div class="container users">
+    <h1>프로필 심사</h1>
+    <form>
+        <div class="form-group bottom0">
+            <div class="col-md-9 col-xs-12">
+                <div class="form-group row">
+                    <label class="col-md-1 col-xs-1 control-label">타입</label>
+                    <div class="col-md-2 col-xs-3">
+                        <select ng-model="query.reviewType" class="form-control">
+                            <option value="">전체</option>
+                            <option value="REVIEW">가입심사</option>
+                            <option value="UPDATE">업데이트</option>
+                        </select>
+                    </div>
+                    <label class="col-md-1 col-xs-1 control-label">상태</label>
+                    <div class="col-md-2 col-xs-3">
+                        <select ng-model="query.reviewStatus" class="form-control">
+                            <option value="">심사중</option>
+                            <option value="R">거절</option>
+                        </select>
+                    </div>
+                    <label class="col-md-1 col-xs-1 control-label">한번에</label>
+                    <div class="col-md-2 col-xs-3">
+                        <select ng-model="query.size" ng-options="size as size for size in sizes" class="form-control">
+                        </select>
+                    </div>
+                    <button class="btn btn-default col-md-2 col-xs-2" ng-click="search()">Search</button>
+                </div>
+
+            </div>
+        </div>
+    </form>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>이름</th>
+            <th>Main</th>
+            <th>성별</th>
+            <th>타입</th>
+            <th>등록일자</th>
+            <th>비고</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-if="users.length ==0">
+            <td colspan="7">해당 검색 결과가 없습니다.</td>
+        </tr>
+        <tr ng-repeat="user in users">
+            <td><a ui-sref="review({id:user.id})">{{user.id}}</a></td>
+            <td>{{user.name}}</td>
+            <td><img ng-repeat="img in user.imageList" img-default ng-src="{{img.imageUrl}}"></td>
+            <td>{{user.gender}}</td>
+            <td>{{user.reviewType}}</td>
+            <td>{{user.reviewRegisteredAt | date}}</td>
+            <td>
+                <b>{{user.result}} {{user.reject_description ? '거절 : '+user.reject_description:''}}</b>
+                <div ng-if="user.reviewType==='REVIEW'">
+                    <a ng-click="approve(user,1)" class="btn btn-default" role="button">가입만(1)</a>
+                    <a ng-click="approve(user,2)" class="btn btn-default" role="button">평가(3)</a> <br>
+                    <a ng-click="approve(user,4)" class="btn btn-default" role="button">소개,평가(4)</a>
+                    <a ng-click="approve(user,7)" class="btn btn-default" role="button">인기피처링(7)</a> <br>
+                    <a ng-click="approve(user)" class="btn btn-danger" role="button">거절</a>
+                </div>
+                <div ng-if="user.reviewType==='UPDATE'">
+                    <a ng-click="approve(user,1)" class="btn btn-default" role="button">수락</a>
+                    <a ng-click="approve(user)" class="btn btn-danger" role="button">거절</a>
+                </div>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+    <nav aria-label="Page navigation" ng-if="size>0">
+        <ul class="pagination">
+            <li>
+                <a href="#" aria-label="Previous" ng-click="prevPage()">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            <li ng-class="{active:query.page===i}" ng-repeat="i in (size/query.size).toArray()" ng-click="query.page=i">
+                <a>{{i+1}}</a></li>
+            <li>
+                <a href="#" aria-label="Next" ng-click="nextPage()">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</div>
