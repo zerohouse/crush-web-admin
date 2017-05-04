@@ -1,4 +1,4 @@
-<div class="container user-detail">
+<div class="user-detail">
     <h3><a ui-sref="user({id:user.id})">사용자 ID : {{user.id}}</a></h3>
     <h5> 리뷰 요청 이미지 </h5>
     <img ng-repeat="picture in user.requested.imageList" style="width:200px;height:200px" ng-src="{{picture.imageUrl}}">
