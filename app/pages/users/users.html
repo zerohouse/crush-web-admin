@@ -85,19 +85,5 @@
         </tr>
         </tbody>
     </table>
-    <nav aria-label="Page navigation" ng-if="size>0">
-        <ul class="pagination">
-            <li>
-                <a href="#" aria-label="Previous" ng-click="prevPage()">
-                    <span aria-hidden="true">&laquo;</span>
-                </a>
-            </li>
-            <li ng-class="{active:query.page===i}" ng-repeat="i in (size/query.size).toArray()" ng-click="query.page=i"><a>{{i+1}}</a></li>
-            <li>
-                <a href="#" aria-label="Next" ng-click="nextPage()">
-                    <span aria-hidden="true">&raquo;</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
+    <pagenation page="query.page" size="query.size" all-size="size"></pagenation>
 </div>

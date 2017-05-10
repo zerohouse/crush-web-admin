@@ -1,0 +1,26 @@
+<nav aria-label="Page navigation" ng-if="size>0">
+    <ul class="pagination">
+        <li>
+            <a href="#" aria-label="Previous" ng-click="prevIndexPage()">
+                <span aria-hidden="true"><<</span>
+            </a>
+        </li>
+        <li>
+            <a href="#" aria-label="Previous" ng-click="prevPage()">
+                <span aria-hidden="true"><</span>
+            </a>
+        </li>
+        <li ng-class="{active:page===i}" ng-repeat="i in (allSize/size).toArray() | limitTo:index.size:index.page*index.size"
+            ng-click="setPage(i)"><a>{{i+1}}</a></li>
+        <li>
+            <a href="#" aria-label="Next" ng-click="nextPage()">
+                <span aria-hidden="true">></span>
+            </a>
+        </li>
+        <li>
+            <a href="#" aria-label="Next" ng-click="nextIndexPage()">
+                <span aria-hidden="true">>></span>
+            </a>
+        </li>
+    </ul>
+</nav>
