@@ -35,9 +35,9 @@
     <input-and-label label="버찌" ng-model="user.point" readonly="true"></input-and-label>
 
     <input-and-label label="상태" ng-model="user.status" readonly="true"></input-and-label>
-    <input-and-label label="등록일자" ng-value="user.joinDttm | date" readonly="true"></input-and-label>
-    <input-and-label label="수정일자" ng-value="user.updateDttm | date" type="date" readonly="true"></input-and-label>
-    <input-and-label label="마지막 로그인" ng-value="user.lastLoggedAt  | date" readonly="true"></input-and-label>
+    <input-and-label label="등록일자" ng-value="user.joinDttm | date :'yyyy-MM-dd hh:mm:ss'" readonly="true"></input-and-label>
+    <input-and-label label="수정일자" ng-value="user.updateDttm |  date :'yyyy-MM-dd hh:mm:ss'" readonly="true"></input-and-label>
+    <input-and-label label="마지막 로그인" ng-value="user.lastLoggedAt  |  date :'yyyy-MM-dd hh:mm:ss'" readonly="true"></input-and-label>
 
 
     <div>

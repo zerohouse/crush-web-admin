@@ -10,12 +10,13 @@
                     params.message = reason;
                     $ajax.post('/admin/approve', params).then(function () {
                         popup.alert('거절 처리되었습니다.');
-                        user.result = "거절 : " +reason;
+                        user.result = "거절 : " + reason;
                     });
                 });
                 return;
             }
             else {
+                score = score * 2;
                 params.score = score;
                 params.pass = true;
             }
