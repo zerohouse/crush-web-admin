@@ -26,8 +26,8 @@
     <tbody>
     <tr ng-repeat="log in logs">
         <th scope="row">{{log.id}}</th>
-        <td>id:{{log.sender.id}} name:{{log.sender.name}}</td>
-        <td>id:{{log.receiver.id}} name:{{log.receiver.name}}</td>
+        <td><user-simple user="log.sender"></user-simple></td>
+        <td><user-simple user="log.receiver"></user-simple></td>
         <td>{{log.message}}</td>
         <td>{{log.reply}}</td>
         <td>{{log.sentAt | date}}</td>
