@@ -17,6 +17,11 @@ angular.module('app')
                 templateUrl: '/pages/reviews/reviews.html',
                 controller: 'reviewsCtrl'
             })
+            .state("voices", {
+                url: "/manage/voices",
+                templateUrl: '/pages/voices/voices.html',
+                controller: 'voicesCtrl'
+            })
             .state("review", {
                 url: "/manage/review/:id",
                 templateUrl: '/pages/review/review.html',

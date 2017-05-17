@@ -49,7 +49,16 @@
         <tr ng-repeat="user in users">
             <td><a ui-sref="review({id:user.id})">{{user.id}}</a></td>
             <td>{{user.name}}</td>
-            <td><img ng-repeat="img in user.imageList" img-default ng-src="{{img.imageUrl}}"></td>
+            <td>
+                <div ng-if="user.imageList" style="padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid #ccc">
+                    현재
+                    <img ng-repeat="img in user.imageList" img-default ng-src="{{img.imageUrl}}">
+                </div>
+                <div>
+                    요청
+                    <img ng-repeat="img in user.imageRequestList" img-default ng-src="{{img.imageUrl}}">
+                </div>
+            </td>
             <td>{{user.gender}}</td>
             <td>{{user.reviewType}}</td>
             <td>{{user.reviewRegisteredAt | date}}</td>

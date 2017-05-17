@@ -1,0 +1,50 @@
+<div class="users">
+    <h1>신고된 음성 확인하기</h1>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>보이스</th>
+            <th>유저명</th>
+            <th>등록일자</th>
+            <th>상태</th>
+            <th>신고정보</th>
+            <th>비고</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-if="voices.length==0">
+            <td colspan="7">해당 검색 결과가 없습니다.</td>
+        </tr>
+        <tr ng-repeat="voice in voices | orderBy:'status'">
+            <td>{{voice.id}}</td>
+            <td>
+                <audio controls>
+                    <source src="{{voice.voiceuripath}}">
+                </audio>
+            </td>
+            <td>
+                <user-simple user="voice.user"></user-simple>
+            </td>
+            <td>{{voice.createdAt | date}}</td>
+            <td>
+                <span ng-if="voice.showAgainAt">재노출</span>
+                <span ng-if="voice.deleted">블락</span>
+                <span ng-if="!voice.deleted && !voice.showAgainAt">신고접수</span>
+            </td>
+            <td>
+                <div ng-repeat="v in voice.voicePasses">
+                    <user-simple user="v.user"></user-simple>
+                    {{v.createdAt | date}}
+                </div>
+            </td>
+            <td>
+                <a ng-click="review(voice, true)" class="btn btn-default" role="button">재노출</a>
+                <a ng-click="review(voice)" class="btn btn-danger" role="button">블락</a>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+    <pagenation page="query.page" size="query.size" all-size="size"></pagenation>
+</div>
