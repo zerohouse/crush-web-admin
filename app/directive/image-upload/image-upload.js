@@ -10,7 +10,7 @@
                 fileType: '@',
                 placeholder: '@'
             },
-            controller: function ($scope, Upload, popup, $ajax) {
+            controller: function ($scope, Upload, pop, $ajax) {
                 $scope.upload = function (file) {
                     if (!file)
                         return;
@@ -27,7 +27,7 @@
                             return;
                         }
                         if (data.state.description) {
-                            popup.alert(data.state.description);
+                            pop.alert(data.state.description);
                         }
                     });
                 };

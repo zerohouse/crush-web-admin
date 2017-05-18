@@ -8,5 +8,6 @@ angular
         'chart.js',
         'ngMessages',
         'ngFileUpload',
-        'ui.bootstrap'
+        'ui.bootstrap',
+        'ngDialog'
     ]);

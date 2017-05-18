@@ -39,36 +39,13 @@
         };
 
         $scope.delete = function (user) {
-            if (!confirm(`ID:${user.id} 이름:${user.name}\n\n유저를 삭제 처리합니다.`))
-                return;
-            $ajax.delete('/admin/user', {id: user.id}).then(function (response) {
-                angular.copy(response, $scope.user);
-                pop.alert("유저상태 변경(삭제)되었습니다.");
-            });
-        };
-
-        $scope.newRequestInfo = function () {
-            popup.confirm("심사 대기 정보를 생성합니다.").then(function () {
-                $scope.user.profileRequested = {};
-            });
-        };
-
-        $scope.newUserInfo = function () {
-            popup.confirm("심사 통과 정보를 생성하면 자동 승인처리 됩니다.").then(function () {
-                $scope.user.profile = {};
-            });
-        };
-
-        $scope.approve = function (user, approve) {
-            var result = approve ? "승인" : "거절";
-            popup.confirm(`심사 ${result}합니다.`).then(function () {
-                var params = {id: user.id, approve: approve};
-                if (!approve)
-                    params.message = prompt("거절 사유?");
-                $ajax.post('/api/v1/admin/approveUser', params).then(function (response) {
-                    angular.copy(response, user);
+            popup.confirm(`ID:${user.id} 이름:${user.name}\n\n유저를 삭제 처리합니다.`).then(function () {
+                $ajax.delete('/admin/user', {id: user.id}).then(function (response) {
+                    angular.copy(response, $scope.user);
+                    pop.alert("유저상태 변경(삭제)되었습니다.");
                 });
             });
         };
+
     }
 })();

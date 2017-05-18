@@ -16,26 +16,20 @@
 
     angular.module('app').service('popup', popupService);
     /* @ng-inject */
-    function popupService($compile, $rootScope, $q) {
-
-        this.alert = (message, classes) => {
-            vex.defaultOptions.className = 'vex-theme-os';
-            if (!classes || !classes.match('theme'))
-                classes = 'vex-theme-wireframe ' + classes;
-            vex.dialog.alert({
-                message: message,
-                className: classes
-            });
-        };
+    function popupService($rootScope, $q, ngDialog) {
 
         this.confirm = (m, title) => {
             return $q((ok, no) => {
                 message.message = m;
                 message.title = title;
                 message.ok = ok;
-                message.no = no;
-                this.open("confirm", "vex-theme-plain");
+                message.no = ngDialog.close;
+                ngDialog.openConfirm({
+                    template: '/dialog/confirm.html',
+                    scope: $rootScope
+                }).then(ok, no);
             });
+
         };
 
         this.error = (message, classes) => {
@@ -43,23 +37,12 @@
             throw message;
         };
 
-        this.open = function (template, classes, scope, afterclose) { //TODO scope종료될떄는 생각좀 해야함 destroy
+        this.open = function (template, classes) { //TODO scope종료될떄는 생각좀 해야함 destroy
             this.close();
             if (!template.match("html")) {
                 template = "/dialog/" + template + ".html";
             }
-            var $vexContent, beforeClose;
-            var options = $.extend({}, vex.defaultOptions, vex.dialog.defaultOptions, options);
-            if (!classes || !classes.match('theme'))
-                classes = 'vex-theme-wireframe ' + classes;
-            options.className = classes;
-            options.afterClose = afterclose;
-            if (!scope)
-                scope = $rootScope;
-            options.content = $compile("<form class='vex-dialog-form' ng-include=\"'" + template + "'\" ></form>")(scope);
-            beforeClose = options.beforeClose;
-            $vexContent = vex.open(options);
-            return $vexContent;
+            ngDialog.open({template: template, className: classes});
         };
 
 
@@ -68,52 +51,18 @@
             if (!template.match("html")) {
                 template = "/dialog/" + template + ".html";
             }
-            var $vexContent, beforeClose;
-            var options = $.extend({}, vex.defaultOptions, vex.dialog.defaultOptions, options);
-            options.className = 'wide vex-theme-wireframe';
             $rootScope.select = (val) => {
                 this.close();
                 fn(val);
             };
-            options.content = $compile("<form class='vex-dialog-form' ng-include=\"'" + template + "'\" ></form>")($rootScope);
-            beforeClose = options.beforeClose;
-            $vexContent = vex.open(options);
-            return $vexContent;
+            ngDialog.open({template: template, className: 'ngdialog-theme-default'});
         };
 
-        this.close = function (non) {
-            if (non === true)
-                closing();
-            else
-                vex.close(non);
+        this.close = function () {
+            ngDialog.close();
         };
 
         $rootScope.close = this.close;
-
-        function closing() {
-            var $lastVex;
-            $lastVex = vex.getAllVexes().last();
-            if (!$lastVex.length) {
-                return false;
-            }
-            var id = $lastVex.data().vex.id;
-            var $vex, $vexContent, close, options;
-            $vexContent = vex.getVexByID(id);
-            if (!$vexContent.length) {
-                return;
-            }
-            $vex = $vexContent.data().vex.$vex;
-            options = $.extend({}, $vexContent.data().vex);
-            close = function () {
-                $vexContent.trigger('vexClose', options);
-                $vex.remove();
-                $('body').trigger('vexAfterClose', options);
-                if (options.afterClose) {
-                    return options.afterClose($vexContent, options);
-                }
-            };
-            close();
-        }
 
     }
 })();

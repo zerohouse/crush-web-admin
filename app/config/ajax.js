@@ -1,7 +1,7 @@
 (function () {
     angular.module('app').run(ajaxConfig);
     /* @ng-inject */
-    function ajaxConfig($ajax, popup, $state) {
+    function ajaxConfig($ajax, pop, $state) {
         $ajax.headers.MuseAccessId = localStorage.getItem('museId');
 
         $ajax.handler((response, success, error) => {
@@ -14,7 +14,7 @@
                     return;
                 }
                 if (response.description) {
-                    popup.alert(response.description);
+                    pop.alert(response.description);
                 }
                 error(response);
             }

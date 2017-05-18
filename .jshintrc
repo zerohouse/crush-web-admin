@@ -15,7 +15,6 @@
     "angular": true,
     "$": true,
     "moment": true,
-    "vex": true,
     "_": true,
     "alert": true,
     "prompt": true
