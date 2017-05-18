@@ -76,11 +76,10 @@
             <td>{{user.name}}</td>
             <td>{{user.score}}</td>
             <td>{{user.gender}}</td>
-            <td>{{user.status}}</td>
+            <td>{{user.status}} {{user.statusName}}</td>
             <td>{{user.regDttm | date}}</td>
             <td>
                 <a ui-sref="user({id:user.id})" class="btn btn-default" role="button">보기</a>
-                <!--<a href="javascript:removeUser(188419);" class="btn btn-danger" id="deleteUser_188419" role="button">삭제</a>-->
             </td>
         </tr>
         </tbody>

@@ -38,6 +38,15 @@
             });
         };
 
+        $scope.delete = function (user) {
+            if (!confirm(`ID:${user.id} 이름:${user.name}\n\n유저를 삭제 처리합니다.`))
+                return;
+            $ajax.delete('/admin/user', {id: user.id}).then(function (response) {
+                angular.copy(response, $scope.user);
+                pop.alert("유저상태 변경(삭제)되었습니다.");
+            });
+        };
+
         $scope.newRequestInfo = function () {
             popup.confirm("심사 대기 정보를 생성합니다.").then(function () {
                 $scope.user.profileRequested = {};

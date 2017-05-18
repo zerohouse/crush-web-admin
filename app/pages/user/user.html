@@ -4,7 +4,10 @@
         <input class="form-control" placeholder="id" ng-model="user.id">
         <div class="input-group-addon" ng-click="getUserinfo(user.id)">ID로 조회</div>
     </div>
-    <h3>사용자(ID:{{user.id}}) {{user.email}} <a class="btn btn-primary" ng-click="modify(user)">유저 업데이트(저장)</a></h3>
+    <h3>사용자(ID:{{user.id}}) {{user.email}}
+        <a class="btn btn-primary" ng-click="modify(user)">유저 업데이트(저장)</a>
+        <a class="btn btn-danger" ng-click="delete(user)">삭제</a>
+    </h3>
     <input-and-label label="이메일" ng-model="user.email"></input-and-label>
     <input-and-label label="이름" ng-model="user.name"></input-and-label>
     <input-and-label label="점수" ng-model="user.score"></input-and-label>
