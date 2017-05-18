@@ -1,15 +1,37 @@
 (function () {
     angular.module('app').controller('dailyCtrl', dailyCtrl);
     /* @ng-inject */
-    function dailyCtrl($ajax, $scope) {
-        $ajax.get('/admin/dailyLog').then(logs => {
-            $scope.logs = logs;
-            logs.forEach(log=>{
-               var day = log.day;
-               log.day = moment(day, "YYYY-MM-DD").format('YYYY-MM-DD(dd)');
+    function dailyCtrl($ajax, $scope, queryService, $timeout) {
+
+        if (queryService.dailyQuery)
+            $scope.query = queryService.dailyQuery;
+        else
+            queryService.dailyQuery = $scope.query = {size: 30, page: 0};
+
+        var params = {};
+
+        $scope.more = function () {
+            if (angular.equals(params, $scope.query))
+                return;
+            angular.copy($scope.query, params);
+            $ajax.get('/admin/dailyLog', params).then(function (response) {
+                $scope.logs = response.list;
+                $scope.size = response.size;
+                makeChart($scope.logs);
             });
-            makeChart(logs);
-        });
+        };
+
+        $scope.search = function () {
+            $scope.query.page = 0;
+            $scope.more();
+        };
+
+        $timeout(function () {
+            $scope.$watch('query.page', $scope.more);
+            $scope.$watch('query.size', $scope.more);
+        }, 300);
+
+        $scope.more();
 
 
         function makeChart(logs) {

@@ -32,19 +32,6 @@
 
         $scope.more();
 
-        $scope.nextPage = function () {
-            $scope.query.page++;
-            var max = Math.floor($scope.size / $scope.query.size);
-            if ($scope.query.page > max)
-                $scope.query.page = max;
-        };
-
-        $scope.prevPage = function () {
-            $scope.query.page--;
-            if ($scope.query.page < 0)
-                $scope.query.page = 0;
-        };
-
         $scope.search = function () {
             $scope.query.page = 0;
             $scope.more();
