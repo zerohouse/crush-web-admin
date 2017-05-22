@@ -1,5 +1,5 @@
 <div class="users">
-    <h1>신고된 음성 확인하기</h1>
+    <h1>음성 채팅</h1>
     <table class="table table-striped">
         <thead>
         <tr>
@@ -8,8 +8,6 @@
             <th>유저명</th>
             <th>등록일자</th>
             <th>상태</th>
-            <th>신고정보</th>
-            <th>비고</th>
         </tr>
         </thead>
         <tbody>
@@ -21,6 +19,10 @@
             <td>
                 <audio controls>
                     <source src="{{voice.voiceuripath}}">
+                    <!--<source-->
+                            <!--src="{{voice.voiceuripath}}"-->
+                            <!--type='video/3gpp; codecs="mp4v.20.8, samr"'>-->
+                    <!--</source>-->
                 </audio>
             </td>
             <td>
@@ -30,17 +32,6 @@
             <td>
                 {{voice.status}}
             </td>
-            <td>
-                <div ng-repeat="v in voice.voicePasses">
-                    <user-simple user="v.user"></user-simple>
-                    {{v.createdAt | date}}
-                </div>
-            </td>
-            <td>
-                <a ng-click="review(voice, true)" class="btn btn-default" role="button">재노출</a>
-                <a ng-click="review(voice)" class="btn btn-danger" role="button">블락</a>
-            </td>
-
         </tr>
         </tbody>
     </table>

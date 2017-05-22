@@ -22,6 +22,11 @@ angular.module('app')
                 templateUrl: '/pages/voices/voices.html',
                 controller: 'voicesCtrl'
             })
+            .state("allVoices", {
+                url: "/manage/voices/all",
+                templateUrl: '/pages/voices/allVoices.html',
+                controller: 'allVoicesCtrl'
+            })
             .state("review", {
                 url: "/manage/review/:id",
                 templateUrl: '/pages/review/review.html',

@@ -8,9 +8,10 @@
         <a class="btn btn-primary" ng-click="modify(user)">유저 업데이트(저장)</a>
         <a class="btn btn-danger" ng-click="delete(user)">삭제</a>
     </h3>
+    <input-and-label label="평점" ng-model="user.score"></input-and-label>
+
     <input-and-label label="이메일" ng-model="user.email"></input-and-label>
     <input-and-label label="이름" ng-model="user.name"></input-and-label>
-    <input-and-label label="점수" ng-model="user.score"></input-and-label>
     <input-and-label label="생년" ng-model="user.birthDate"></input-and-label>
 
     <div class="input-group margin-bottom-20">
@@ -34,7 +35,6 @@
     <input-and-label label="키" ng-model="user.height"></input-and-label>
     <input-and-label label="학교" ng-model="user.school"></input-and-label>
 
-    <input-and-label label="평점" ng-model="user.score" readonly="true"></input-and-label>
     <input-and-label label="버찌" ng-model="user.point" readonly="true"></input-and-label>
 
     <input-and-label label="상태" ng-model="user.status" readonly="true"></input-and-label>
