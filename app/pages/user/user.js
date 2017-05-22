@@ -21,6 +21,7 @@
         $scope.addPoint = function (amount) {
             $ajax.post('/admin/pointToUser', {userId: $scope.user.id, amount: amount}).then(function (response) {
                 angular.copy(response, $scope.user);
+                pop.alert(`포인트가 ${amount} 변경되었습니다.`);
                 $scope.close();
             });
         };
