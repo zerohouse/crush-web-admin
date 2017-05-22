@@ -26,7 +26,8 @@
                 message.no = ngDialog.close;
                 ngDialog.openConfirm({
                     template: '/dialog/confirm.html',
-                    scope: $rootScope
+                    scope: $rootScope,
+                    disableAnimation: true
                 }).then(ok, no);
             });
 
@@ -37,12 +38,17 @@
             throw message;
         };
 
-        this.open = function (template, classes) { //TODO scope종료될떄는 생각좀 해야함 destroy
+        this.open = function (template, scope) { //TODO scope종료될떄는 생각좀 해야함 destroy
             this.close();
             if (!template.match("html")) {
                 template = "/dialog/" + template + ".html";
             }
-            ngDialog.open({template: template, className: classes});
+            ngDialog.open({
+                template: template,
+                className: 'ngdialog-theme-default',
+                scope: scope,
+                disableAnimation: true
+            });
         };
 
 
@@ -55,7 +61,7 @@
                 this.close();
                 fn(val);
             };
-            ngDialog.open({template: template, className: 'ngdialog-theme-default'});
+            ngDialog.open({template: template, className: 'ngdialog-theme-default', disableAnimation: true});
         };
 
         this.close = function () {

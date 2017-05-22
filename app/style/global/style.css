@@ -84,3 +84,6 @@ textarea.transparent {
   text-decoration: none;
   background-color: #eee;
 }
+.ngdialog-overlay {
+  background: none;
+}

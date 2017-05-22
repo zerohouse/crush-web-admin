@@ -16,14 +16,8 @@
             <ul class="nav navbar-nav navbar-right">
                 <li uib-dropdown class="dropdown">
                     <a href="#" uib-dropdown-toggle class="dropdown-toggle">관리자<span class="caret"></span></a>
-                    <ul uib-dropdown-menu class="dropdown-menu">
-                        <li><a ui-sref="users">전체 회원</a></li>
-                        <li><a ui-sref="reviews">프로필 심사</a></li>
-                        <li><a ui-sref="dailyLog">현황</a></li>
-                        <li><a ui-sref="pointLog">포인트 로그</a></li>
-                        <li><a ui-sref="likeLog">좋아요 로그</a></li>
-                        <li><a ui-sref="purchaseLog">구매 로그</a></li>
-                        <li><a ui-sref="voices">보이스 신고</a></li>
+
+                    <ul uib-dropdown-menu class="dropdown-menu" menus>
                     </ul>
                 </li>
                 <li ng-if="!user.id"><a ng-click="loginPopup()">로그인</a></li>

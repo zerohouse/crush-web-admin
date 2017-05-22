@@ -51,11 +51,11 @@
             <td>{{user.name}}</td>
             <td>
                 <div ng-if="user.imageList" style="padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid #ccc">
-                    현재
+                    <span  ng-if="user.reviewType==='UPDATE'">요청</span>
                     <img ng-repeat="img in user.imageList" img-default ng-src="{{img.imageUrl}}">
                 </div>
                 <div>
-                    요청
+                    <span  ng-if="user.reviewType==='UPDATE'">현재</span>
                     <img ng-repeat="img in user.imageRequestList" img-default ng-src="{{img.imageUrl}}">
                 </div>
             </td>
@@ -63,18 +63,7 @@
             <td>{{user.reviewType}}</td>
             <td>{{user.reviewRegisteredAt | date}}</td>
             <td>
-                <b>{{user.result}} {{user.reject_description ? '거절 : '+user.reject_description:''}}</b>
-                <div ng-if="user.reviewType==='REVIEW'">
-                    <a ng-click="approve(user,1)" class="btn btn-default" role="button">가입만(1)</a>
-                    <a ng-click="approve(user,2)" class="btn btn-default" role="button">평가(3)</a> <br>
-                    <a ng-click="approve(user,4)" class="btn btn-default" role="button">소개,평가(4)</a>
-                    <a ng-click="approve(user,7)" class="btn btn-default" role="button">인기피처링(7)</a> <br>
-                    <a ng-click="approve(user)" class="btn btn-danger" role="button">거절</a>
-                </div>
-                <div ng-if="user.reviewType==='UPDATE'">
-                    <a ng-click="approve(user,1)" class="btn btn-default" role="button">수락</a>
-                    <a ng-click="approve(user)" class="btn btn-danger" role="button">거절</a>
-                </div>
+                <update-user-btn-set user="user"></update-user-btn-set>
             </td>
 
         </tr>

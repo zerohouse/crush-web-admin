@@ -1,7 +1,6 @@
 <div class="dialog-body">
     <input type="email" name="email" ng-model="user.email" placeholder="이메일" class="form-control" maxlength="50" required>
-    <input type="password" name="password" ng-enter="login(user)"  maxlength="20" ng-model="user.password" placeholder="패스워드"
+    <input type="password" name="password" ng-enter="login(user)"  maxlength="20" ng-model="user.passwd" placeholder="패스워드"
            required class="form-control">
     <div class="btn btn-primary margin-bottom-10" ng-click="login(user)">로그인</div>
-    <div class="btn btn-primary margin-bottom-10" ng-click="register(user)">회원가입</div>
 </div>

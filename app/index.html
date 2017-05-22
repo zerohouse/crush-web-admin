@@ -68,10 +68,12 @@
     <script src="/directive/image-upload/image-upload.js"></script>
     <script src="/directive/img-default/img-default.js"></script>
     <script src="/directive/input-and-label/input-and-label.js"></script>
+    <script src="/directive/menus/menus.js"></script>
     <script src="/directive/multi-options/multi-options.js"></script>
     <script src="/directive/pagenation/pagenation.js"></script>
     <script src="/directive/radiobuttons/radiobutton.directive.js"></script>
     <script src="/directive/radiobuttons/radiobuttons.directive.js"></script>
+    <script src="/directive/update-user-btn-set/updateset.js"></script>
     <script src="/directive/user-profile/user-profile.js"></script>
     <script src="/directive/user-simple/user-simple.js"></script>
     <script src="/directive/userinformation/userinformation.js"></script>
@@ -92,6 +94,7 @@
     <script src="/pages/users/voice/voice.js"></script>
     <script src="/pages/voices/allVoices.js"></script>
     <script src="/pages/voices/voices.js"></script>
+    <script src="/root.ctrl.js"></script>
     <script src="/service/pop.service.js"></script>
     <script src="/service/popup/popup.service.js"></script>
     <script src="/service/query.service.js"></script>
@@ -148,15 +151,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-sm-3 col-md-2 sidebar">
-            <ul class="nav nav-sidebar">
-                <li><a ui-sref="users" active-state>전체 회원</a></li>
-                <li><a ui-sref="reviews" active-state>프로필 심사</a></li>
-                <li><a ui-sref="dailyLog" active-state>현황</a></li>
-                <li><a ui-sref="pointLog" active-state>포인트 로그</a></li>
-                <li><a ui-sref="likeLog" active-state>좋아요 로그</a></li>
-                <li><a ui-sref="purchaseLog" active-state>구매 로그</a></li>
-                <li><a ui-sref="voices" active-state>보이스 신고</a></li>
-                <li><a ui-sref="allVoices" active-state>보이스 신고</a></li>
+            <ul class="nav nav-sidebar" menus>
             </ul>
         </div>
         <div ui-view class="col-sm-9 col-md-10"></div>

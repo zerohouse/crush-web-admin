@@ -36,11 +36,18 @@
     <input-and-label label="학교" ng-model="user.school"></input-and-label>
 
     <input-and-label label="버찌" ng-model="user.point" readonly="true"></input-and-label>
+    <div style="margin-top: -15px;margin-bottom: 20px;">
+        <span class="btn btn-danger" ng-click="openPoint()">지급/차감</span>
+        <span class="btn btn-info" ng-click="moveToPointLog()">내역</span>
+    </div>
 
     <input-and-label label="상태" ng-model="user.status" readonly="true"></input-and-label>
-    <input-and-label label="등록일자" ng-value="user.joinDttm | date :'yyyy-MM-dd hh:mm:ss'" readonly="true"></input-and-label>
-    <input-and-label label="수정일자" ng-value="user.updateDttm |  date :'yyyy-MM-dd hh:mm:ss'" readonly="true"></input-and-label>
-    <input-and-label label="마지막 로그인" ng-value="user.lastLoggedAt  |  date :'yyyy-MM-dd hh:mm:ss'" readonly="true"></input-and-label>
+    <input-and-label label="등록일자" ng-value="user.joinDttm | date :'yyyy-MM-dd hh:mm:ss'"
+                     readonly="true"></input-and-label>
+    <input-and-label label="수정일자" ng-value="user.updateDttm |  date :'yyyy-MM-dd hh:mm:ss'"
+                     readonly="true"></input-and-label>
+    <input-and-label label="마지막 로그인" ng-value="user.lastLoggedAt  |  date :'yyyy-MM-dd hh:mm:ss'"
+                     readonly="true"></input-and-label>
 
 
     <div>

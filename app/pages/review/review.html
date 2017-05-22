@@ -34,17 +34,6 @@
             </tr>
             </tbody>
         </table>
-        <b>{{user.result}} {{user.requested.reject_description ? '거절 : '+user.requested.reject_description:''}}</b>
-        <div ng-if="user.reviewType==='REVIEW'">
-            <a ng-click="approve(user,1)" class="btn btn-default" role="button">가입만(1)</a>
-            <a ng-click="approve(user,2)" class="btn btn-default" role="button">평가(3)</a> <br>
-            <a ng-click="approve(user,4)" class="btn btn-default" role="button">소개,평가(4)</a>
-            <a ng-click="approve(user,7)" class="btn btn-default" role="button">인기피처링(7)</a> <br>
-            <a ng-click="approve(user)" class="btn btn-danger" role="button">거절</a>
-        </div>
-        <div ng-if="user.reviewType==='UPDATE'">
-            <a ng-click="approve(user,1)" class="btn btn-default" role="button">수락</a>
-            <a ng-click="approve(user)" class="btn btn-danger" role="button">거절</a>
-        </div>
+        <update-user-btn-set user="user"></update-user-btn-set>
     </div>
 </div>

@@ -7,7 +7,7 @@ module.exports = {
     livereload: {
         proxies: [
             {
-                context: ['/admin','/profile'], host: '127.0.0.1',
+                context: ['/admin', '/profile', '/account'], host: '127.0.0.1',
                 port: 8080
             }
         ],

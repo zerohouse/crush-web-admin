@@ -1,0 +1,12 @@
+<div ng-controller="confirmCtrl">
+    <div class="vex-dialog-message">
+        <h5>포인트 지급/차감</h5>
+        <div>
+            <input number-only ng-model="point">
+        </div>
+    </div>
+    <div class="vex-dialog-buttons">
+        <button class="vex-dialog-button-primary vex-dialog-button vex-first vex-last" ng-click="addPoint(point)">지급/차감</button>
+        <button class="vex-dialog-button-primary vex-dialog-button vex-first vex-last" ng-click="close()">취소</button>
+    </div>
+</div>

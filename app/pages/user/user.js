@@ -1,7 +1,7 @@
 (function () {
     angular.module('app').controller('userCtrl', userCtrl);
     /* @ng-inject */
-    function userCtrl($ajax, $scope, $stateParams, pop, popup) {
+    function userCtrl($ajax, $scope, $stateParams, pop, popup, $state, queryService) {
 
         $scope.levels = ["ONE", "TWO", "THREE"];
 
@@ -14,6 +14,21 @@
         function User() {
         }
 
+        $scope.openPoint = function () {
+            popup.open('addPoint', $scope);
+        };
+
+        $scope.addPoint = function (amount) {
+            $ajax.post('/admin/pointToUser', {userId: $scope.user.id, amount: amount}).then(function (response) {
+                angular.copy(response, $scope.user);
+                $scope.close();
+            });
+        };
+
+        $scope.moveToPointLog = function () {
+            queryService.pointQuery = {size: 30, page: 0, userid: $scope.user.id};
+            $state.go('pointLog');
+        };
 
         $scope.getUserinfo = function (id) {
             $ajax.get('/admin/user', {id: id}).then(function (response) {

@@ -2,6 +2,10 @@
 angular.module('app')
     .config(function ($stateProvider, $urlRouterProvider) {
         $stateProvider
+            .state("manage", {
+                url: "/manage",
+                templateUrl: '/pages/manage.html'
+            })
             .state("users", {
                 url: "/manage/users",
                 templateUrl: '/pages/users/users.html',
@@ -33,7 +37,7 @@ angular.module('app')
                 controller: 'reviewCtrl'
             })
             .state("dailyLog", {
-                url: "/manage",
+                url: "/manage/dailyLog",
                 templateUrl: '/pages/log/daily/daily.html',
                 controller: 'dailyCtrl'
             })
@@ -54,5 +58,5 @@ angular.module('app')
             })
         ;
 
-        $urlRouterProvider.otherwise("/404");
+        $urlRouterProvider.otherwise("/manage");
     });
