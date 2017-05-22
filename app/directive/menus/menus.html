@@ -1,3 +1,5 @@
+<li><a ui-sref="roles" active-state>권한 변경</a></li>
+<!--ng-if="hasRight('ADMIN')"-->
 <li ng-if="hasRight('USER')"><a ui-sref="users" active-state>전체 회원</a></li>
 <li ng-if="hasRight('USER')"><a ui-sref="reviews" active-state>프로필 심사</a></li>
 <li ng-if="hasRight('DAILY_LOG')"><a ui-sref="dailyLog" active-state>현황</a></li>

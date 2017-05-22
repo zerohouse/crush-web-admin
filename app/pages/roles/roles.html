@@ -1,0 +1,28 @@
+<div class="container">
+    <h1>권한 관리</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>이메일</th>
+            <th>권한</th>
+            <th>비고</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="user in users">
+            <th scope="row" ui-sref="user({id:user.id})">{{user.id}}</th>
+            <td>{{user.email}}</td>
+            <td>
+                <select class="form-control" ng-model="user.role"
+                        ng-options="option as option for option in roles"></select>
+            </td>
+            <td>
+                <span class="btn btn-primary" ng-click="updateRole(user.role, user.id)">권한 갱신</span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="btn btn-info" ng-click="openNewRole()">새로운 유저 권한주기</div>
+    <pagenation page="query.page" size="query.size" all-size="size"></pagenation>
+</div>

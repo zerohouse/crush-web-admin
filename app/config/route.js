@@ -15,6 +15,11 @@ angular.module('app')
                 templateUrl: '/pages/users/users.html',
                 controller: 'usersCtrl'
             })
+            .state("roles", {
+                url: "/manage/users/role",
+                templateUrl: '/pages/roles/roles.html',
+                controller: 'rolesCtrl'
+            })
             .state("user", {
                 url: "/manage/user/:id",
                 templateUrl: '/pages/user/user.html',

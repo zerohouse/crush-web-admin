@@ -1,0 +1,11 @@
+<div class="dialog-body">
+    <h3>새 유저 권한주기</h3>
+    <input type="email" name="email" ng-model="email" placeholder="이메일" class="form-control" maxlength="50"
+           required>
+    <div class="input-group">
+        <span class="input-group-addon">권한</span>
+        <select class="form-control" ng-model="role" placeholder="권한"
+                ng-options="option as option for option in roles"></select>
+    </div>
+    <div class="btn btn-primary margin-bottom-10" ng-click="updateRole(role, null,email)">새 유저 권한주기</div>
+</div>
