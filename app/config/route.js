@@ -6,6 +6,10 @@ angular.module('app')
                 url: "/manage",
                 templateUrl: '/pages/manage.html'
             })
+            .state("setting", {
+                url: "/manage/setting",
+                templateUrl: '/pages/setting/setting.html'
+            })
             .state("users", {
                 url: "/manage/users",
                 templateUrl: '/pages/users/users.html',

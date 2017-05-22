@@ -1,0 +1,11 @@
+<h3>{{os}}</h3>
+<input-and-label label="{{os}} 공지 ID" ng-model="setting.noticeid"></input-and-label>
+<input-and-label label="{{os}} 공지 타이틀" ng-model="setting.title"></input-and-label>
+<input-and-label label="{{os}} 공지 메세지(본문)" ng-model="setting.description"></input-and-label>
+<input-and-label label="{{os}} 앱 최소 버전" ng-model="setting.minVersion"></input-and-label>
+<input-and-label label="{{os}} 앱 최신 버전" ng-model="setting.latestVersion"></input-and-label>
+<input-and-label label="{{os}} 서비스 상태" ng-model="setting.status"></input-and-label>
+<input-and-label label="{{os}} 이벤트 주소" ng-model="setting.url"></input-and-label>
+<input-and-label label="{{os}} 추가정보" ng-model="setting.extra"></input-and-label>
+
+<span class="btn btn-primary" ng-click="save()">저장하기</span>
