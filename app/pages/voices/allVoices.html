@@ -17,13 +17,7 @@
         <tr ng-repeat="voice in voices | orderBy:'status'">
             <td>{{voice.id}}</td>
             <td>
-                <audio controls>
-                    <source src="{{voice.voiceuripath}}">
-                    <!--<source-->
-                            <!--src="{{voice.voiceuripath}}"-->
-                            <!--type='video/3gpp; codecs="mp4v.20.8, samr"'>-->
-                    <!--</source>-->
-                </audio>
+                <audio src="{{voice.voiceuripath}}" controls></audio>
             </td>
             <td>
                 <user-simple user="voice.user"></user-simple>
@@ -37,3 +31,4 @@
     </table>
     <pagenation page="query.page" size="query.size" all-size="size"></pagenation>
 </div>
+

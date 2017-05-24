@@ -79,6 +79,9 @@ textarea.transparent {
   .sidebar {
     display: none;
   }
+  .hide-sm {
+    display: none;
+  }
 }
 .state-active {
   text-decoration: none;

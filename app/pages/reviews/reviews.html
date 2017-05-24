@@ -34,11 +34,11 @@
         <thead>
         <tr>
             <th>ID</th>
-            <th>이름</th>
+            <th class="hide-sm">이름</th>
             <th>Main</th>
             <th>성별</th>
-            <th>타입</th>
-            <th>등록일자</th>
+            <th class="hide-sm">타입</th>
+            <th class="hide-sm">등록일자</th>
             <th>비고</th>
         </tr>
         </thead>
@@ -48,20 +48,20 @@
         </tr>
         <tr ng-repeat="user in users">
             <td><a ui-sref="review({id:user.id})">{{user.id}}</a></td>
-            <td>{{user.name}}</td>
+            <td class="hide-sm">{{user.name}}</td>
             <td>
                 <div ng-if="user.imageList" style="padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid #ccc">
-                    <span  ng-if="user.reviewType==='UPDATE'">요청</span>
+                    <span ng-if="user.reviewType==='UPDATE'">요청</span>
                     <img ng-repeat="img in user.imageList" img-default ng-src="{{img.imageUrl}}">
                 </div>
                 <div>
-                    <span  ng-if="user.reviewType==='UPDATE'">현재</span>
+                    <span ng-if="user.reviewType==='UPDATE'">현재</span>
                     <img ng-repeat="img in user.imageRequestList" img-default ng-src="{{img.imageUrl}}">
                 </div>
             </td>
             <td>{{user.gender}}</td>
-            <td>{{user.reviewType}}</td>
-            <td>{{user.reviewRegisteredAt | date}}</td>
+            <td class="hide-sm">{{user.reviewType}}</td>
+            <td class="hide-sm">{{user.reviewRegisteredAt | date}}</td>
             <td>
                 <update-user-btn-set user="user"></update-user-btn-set>
             </td>
