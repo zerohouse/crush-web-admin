@@ -6,7 +6,7 @@
         if (queryService.reviewsQuery)
             $scope.query = queryService.reviewsQuery;
         else
-            queryService.reviewsQuery = $scope.query = {size: 10, page: 0};
+            queryService.reviewsQuery = $scope.query = {size: 30, page: 0};
         $scope.users = [];
         $scope.sizes = [10, 30, 50];
 

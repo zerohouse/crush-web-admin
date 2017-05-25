@@ -2,8 +2,6 @@
     angular.module('app').run(ajaxConfig);
     /* @ng-inject */
     function ajaxConfig($ajax, pop, $state) {
-        $ajax.headers.MuseAccessId = localStorage.getItem('museId');
-
         $ajax.handler((response, success, error) => {
                 if ($state.current.name === 'apiTest') {
                     success(response);

@@ -8,13 +8,14 @@ module.exports = {
         proxies: [
             {
                 context: ['/admin', '/profile', '/account', '/systemCheck'], host: '127.0.0.1',
-                port: 8080
+                port: 3000
             }
         ],
         options: {
             open: true,
             middleware: function (connect) {
                 console.log("<%= config.app %>");
+
                 return [
                     require('grunt-connect-proxy/lib/utils').proxyRequest,
                     require('connect-modrewrite')(['!\\.html|\\.js|\\.ico|\\.svg|\\.css|\\.png|\\.gif|\\.jpg|\\.woff|\\.woff2|\\.ttf$ /index.html [L]']),
@@ -22,7 +23,12 @@ module.exports = {
                         '/bower_components',
                         connect.static('./bower_components')
                     ),
-                    connect.static("app")
+                    connect.static("app"),
+                    function(req, res, next) {
+                        res.setHeader('Access-Control-Allow-Origin', '*');
+                        res.setHeader('Access-Control-Allow-Methods', '*');
+                        next();
+                    }
                 ];
             }
         }
