@@ -90,3 +90,6 @@ textarea.transparent {
 .ngdialog-overlay {
   background: none;
 }
+.max-200 img {
+  max-width: 200px;
+}
