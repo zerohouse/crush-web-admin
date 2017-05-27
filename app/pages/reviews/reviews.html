@@ -52,11 +52,12 @@
             <td>
                 <div ng-if="user.imageList" style="padding-bottom:10px;margin-bottom:10px;border-bottom:1px solid #ccc">
                     <span ng-if="user.reviewType==='UPDATE'">요청</span>
-                    <img ng-repeat="img in user.imageList" img-default ng-src="{{img.imageUrl}}">
+                    <img-list list="user.imageList"></img-list>
+
                 </div>
                 <div>
                     <span ng-if="user.reviewType==='UPDATE'">현재</span>
-                    <img ng-repeat="img in user.imageRequestList" img-default ng-src="{{img.imageUrl}}">
+                    <img-list list="user.imageList"></img-list>
                 </div>
             </td>
             <td>{{user.gender}}</td>

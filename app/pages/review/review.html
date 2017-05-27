@@ -1,9 +1,9 @@
 <div class="user-detail">
     <h3><a ui-sref="user({id:user.id})">사용자 ID : {{user.id}}</a></h3>
     <h5> 리뷰 요청 이미지 </h5>
-    <img ng-repeat="picture in user.requested.imageList" style="width:200px;height:200px" ng-src="{{picture.imageUrl}}">
+    <img-list list="user.requested.imageList"></img-list>
     <h5> 현재 프로필 이미지 </h5>
-    <img ng-repeat="picture in user.now.imageList" style="width:200px;height:200px" ng-src="{{picture.imageUrl}}">
+    <img-list list="user.now.imageList"></img-list>
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
