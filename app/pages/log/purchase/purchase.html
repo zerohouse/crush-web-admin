@@ -14,12 +14,12 @@
     <tbody>
     <tr ng-repeat="log in logs">
         <th scope="row">{{log.id}}</th>
-        <td>{{log.user}}</td>
+        <td>{{log.user.name}}({{log.user.email}})</td>
         <td>{{log.user.gender}}</td>
         <td>{{log.product}}</td>
         <td>{{log.price}}</td>
         <td>{{log.orderId}}</td>
-        <td>{{log.purchasedAt | date}}</td>
+        <td>{{log.purchasedAt | date :'yyyy-MM-dd hh:mm:ss'}}</td>
     </tr>
     </tbody>
 </table>
