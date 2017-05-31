@@ -61,7 +61,7 @@
             </td>
             <td>{{user.gender}}</td>
             <td class="hide-sm">{{user.reviewType}}</td>
-            <td class="hide-sm">{{user.reviewRegisteredAt | date}}</td>
+            <td class="hide-sm">{{user.reviewRegisteredAt | date :'yyyy-MM-dd hh:mm:ss'}}</td>
             <td>
                 <update-user-btn-set user="user"></update-user-btn-set>
             </td>
