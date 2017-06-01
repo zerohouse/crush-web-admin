@@ -26,14 +26,14 @@
             <td>
                 <user-simple user="voice.user"></user-simple>
             </td>
-            <td>{{voice.createdAt | date}}</td>
+            <td>{{voice.createdAt | date :'yyyy-MM-dd hh:mm:ss'}}</td>
             <td>
                 {{voice.status}}
             </td>
             <td>
                 <div ng-repeat="v in voice.voicePasses">
                     <user-simple user="v.user"></user-simple>
-                    {{v.createdAt | date}}
+                    {{v.createdAt | date :'yyyy-MM-dd hh:mm:ss'}}
                 </div>
             </td>
             <td>
