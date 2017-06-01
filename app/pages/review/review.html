@@ -4,7 +4,7 @@
     <img-list list="user.requested.imageList" class="max-200"></img-list>
 
     <h5> 현재 프로필 이미지 </h5>
-    <img-list list="user.now.imageList"  class="max-200"></img-list>
+    <img-list list="user.now.imageList" class="max-200"></img-list>
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
@@ -17,16 +17,16 @@
             <tbody>
             <tr now-and-requested label="이름" data="user" key="name"></tr>
             <tr now-and-requested label="생년" data="user" key="birthDate"></tr>
-            <tr now-and-requested label="혈액형" data="user" key="bloodType"></tr>
-            <tr now-and-requested label="지역" data="user" key="hometown"></tr>
-            <tr now-and-requested label="이상형" data="user" key="idealType"></tr>
-            <tr now-and-requested label="종교" data="user" key="religion"></tr>
-            <tr now-and-requested label="체형" data="user" key="bodyType"></tr>
+            <tr now-and-requested-code label="혈액형" data="user" key="bloodType"></tr>
+            <tr now-and-requested-code label="지역" data="user" key="hometown"></tr>
+            <tr now-and-requested-code label="이상형" data="user" key="idealType"></tr>
+            <tr now-and-requested-code label="종교" data="user" key="religion"></tr>
+            <tr now-and-requested-code label="체형" data="user" key="bodyType"></tr>
             <tr now-and-requested label="키" data="user" key="height"></tr>
             <tr now-and-requested label="학교" data="user" key="school"></tr>
-            <tr now-and-requested label="매력" data="user" key="charms"></tr>
-            <tr now-and-requested label="좋아하는 것" data="user" key="favorites"></tr>
-            <tr now-and-requested label="취미" data="user" key="hobbies"></tr>
+            <tr now-and-requested-code label="매력" data="user" key="charms"></tr>
+            <tr now-and-requested-code label="좋아하는 것" data="user" key="favorites"></tr>
+            <tr now-and-requested-code label="취미" data="user" key="hobbies"></tr>
             <tr>
                 <td>등록일자</td>
                 <td>{{user.requested.reviewRegisteredAt | date}}</td>
