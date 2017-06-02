@@ -5,7 +5,7 @@
         return {
             restrict: 'A',
             template: '<td>{{label}}</td>' +
-            '<td ng-class="{danger:data.now[key]!==data.requested[key]}">{{getCodeAndValue(data.requested[key])}}</td>' +
+            '<td ng-class="{danger:!equals(data.now[key],data.requested[key])}">{{getCodeAndValue(data.requested[key])}}</td>' +
             '<td>{{getCodeAndValue(data.now[key])}}</td>',
             scope: {
                 key: '@',
@@ -13,6 +13,8 @@
                 data: '='
             },
             controller: function ($scope) {
+                $scope.equals = angular.equals;
+
                 var values = {
                     "BLT_A": "A형",
                     "BLT_B": "B형",

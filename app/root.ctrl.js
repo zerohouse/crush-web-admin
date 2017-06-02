@@ -15,19 +15,11 @@
 
         $rootScope.login = user => {
             $ajax.post('/account/signin', user).then(function (user) {
-                $rootScope.user = user;
+                angular.copy(user, $rootScope.user);
                 $rootScope.close();
             }, function (err) {
                 pop.alert(err.data.description);
             });
-        };
-
-        $rootScope.hasRight = function (value) {
-            if (!$rootScope.user)
-                return false;
-            if (!$rootScope.user.permissions)
-                return false;
-            return $rootScope.user.permissions.contains(value);
         };
 
         $rootScope.logout = () => {

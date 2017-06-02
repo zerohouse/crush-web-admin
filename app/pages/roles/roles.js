@@ -12,7 +12,8 @@
         $scope.roles = [
             "ADMIN",
             "MARKETING",
-            "OPERATION"
+            "OPERATION",
+            "PUSH"
         ];
 
         var params = {};

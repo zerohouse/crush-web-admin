@@ -1,10 +1,11 @@
-<li ng-if="hasRight('ADMIN')"><a ui-sref="roles" active-state>권한 변경</a></li>
-<li ng-if="hasRight('USER')"><a ui-sref="users" active-state>전체 회원</a></li>
-<li ng-if="hasRight('USER')"><a ui-sref="reviews" active-state>프로필 심사</a></li>
-<li ng-if="hasRight('DAILY_LOG')"><a ui-sref="dailyLog" active-state>현황</a></li>
-<li ng-if="hasRight('POINT_LOG')"><a ui-sref="pointLog" active-state>포인트 로그</a></li>
-<li ng-if="hasRight('USER')"><a ui-sref="likeLog" active-state>좋아요 로그</a></li>
-<li ng-if="hasRight('PURCHASE_LOG')"><a ui-sref="purchaseLog" active-state>구매 로그</a></li>
-<li ng-if="hasRight('VOICE')"><a ui-sref="voices" active-state>보이스 신고</a></li>
-<li ng-if="hasRight('VOICE')"><a ui-sref="allVoices" active-state>전체 보이스</a></li>
-<li ng-if="hasRight('SETTING')"><a ui-sref="setting" active-state>앱 세팅</a></li>
+<li ng-show="hasRight('ADMIN')"><a ui-sref="roles" active-state>권한 변경</a></li>
+<li ng-show="hasRight('USER')"><a ui-sref="users" active-state>전체 회원</a></li>
+<li ng-show="hasRight('USER')"><a ui-sref="reviews" active-state>프로필 심사</a></li>
+<li ng-show="hasRight('DAILY_LOG')"><a ui-sref="dailyLog" active-state>현황</a></li>
+<li ng-show="hasRight('POINT_LOG')"><a ui-sref="pointLog" active-state>포인트 로그</a></li>
+<li ng-show="hasRight('USER')"><a ui-sref="likeLog" active-state>좋아요 로그</a></li>
+<li ng-show="hasRight('PURCHASE_LOG')"><a ui-sref="purchaseLog" active-state>구매 로그</a></li>
+<li ng-show="hasRight('VOICE')"><a ui-sref="voices" active-state>보이스 신고</a></li>
+<li ng-show="hasRight('VOICE')"><a ui-sref="allVoices" active-state>전체 보이스</a></li>
+<li ng-show="hasRight('SETTING')"><a ui-sref="setting" active-state>앱 세팅</a></li>
+<li ng-show="hasRight('PUSH')"><a ui-sref="push" active-state>푸시 테스트</a></li>

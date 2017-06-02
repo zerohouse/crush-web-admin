@@ -20,6 +20,11 @@ angular.module('app')
                 templateUrl: '/pages/roles/roles.html',
                 controller: 'rolesCtrl'
             })
+            .state("push", {
+                url: "/manage/push",
+                templateUrl: '/pages/push/push.html',
+                controller: 'pushCtrl'
+            })
             .state("user", {
                 url: "/manage/user/:id",
                 templateUrl: '/pages/user/user.html',
