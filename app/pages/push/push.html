@@ -1,11 +1,10 @@
 <h3> 푸시 테스트 </h3>
 <p>
-
-    <b>로그인된 유저에게 아이디 유저의 프로필로 푸시 발송</b>
+    <b>로그인된 유저에게 아래 입력한 유저의 프로필로 푸시 발송</b>
     <br>
     계정 ID 예시 34, 107662 ...
 </p>
-<input ng-model="id" class="form-control" number-only placeholder="프로필 아이디">
+<input ng-model="id" class="form-control" number-only placeholder="프로필로 보일 아이디">
 <select class="form-control" ng-model="event"
         ng-options="e as e for e in events"></select>
 <span class="btn btn-white" ng-click="test(id,event)">ID({{id}}) 유저의 프로필로 {{event}} 푸시를 {{user.email}}유저에게 발송</span>
