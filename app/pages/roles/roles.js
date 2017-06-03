@@ -35,9 +35,12 @@
             $ajax.post('/admin/user/role', {role: role, id: id, email: email}).then(function (res) {
                 pop.alert("권한이 변경되었습니다.");
                 $scope.close();
-                if (!$scope.users.findById(res.id)) {
-                    $scope.users.push(res);
+                if (!role) {
+                    $scope.users.removeById(res.id);
+                    return;
                 }
+                if (!$scope.users.findById(res.id))
+                    $scope.users.push(res);
             });
         };
 
@@ -45,7 +48,6 @@
         $scope.$watch('query.size', $scope.more);
 
         $scope.more();
-
 
     }
 })();
