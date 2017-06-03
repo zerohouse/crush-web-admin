@@ -1,20 +1,16 @@
 (function () {
     angular.module('app').run(ajaxConfig);
     /* @ng-inject */
-    function ajaxConfig($ajax, pop, $state) {
+    function ajaxConfig($ajax, pop) {
         $ajax.handler((response, success, error) => {
-                if ($state.current.name === 'apiTest') {
-                    success(response);
+                if (response.data && response.data.description) {
+                    pop.error(response.data.description);
+                    error(response.data);
                     return;
                 }
-                if (!response.code || response.code === "OK") {
+                if (response) {
                     success(response);
-                    return;
                 }
-                if (response.description) {
-                    pop.alert(response.description);
-                }
-                error(response);
             }
         );
     }

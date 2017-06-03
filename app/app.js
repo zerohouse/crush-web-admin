@@ -7,7 +7,7 @@ angular
         'toastr',
         'chart.js',
         'ngMessages',
-        'ngFileUpload',
+        // 'ngFileUpload',
         'ui.bootstrap',
         'ngDialog'
     ]);
