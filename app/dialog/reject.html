@@ -21,8 +21,9 @@
             ]" ng-click="select(option)"><a class="btn btn-white">{{option}}</a></div>
         </div>
     </div>
+    <input placeholder="수동 사유 입력" ng-model="reason" class="form-control">
+    <button ng-show="reason" class="btn-white" ng-click="select(reason)">[{{reason}}] 사유로 거절</button>
     <div class="vex-dialog-buttons">
-        <button type="button" class="vex-dialog-button-secondary vex-dialog-button vex-last" ng-click="close()">Cancel
-        </button>
+        <button type="button" class="vex-dialog-button-secondary vex-dialog-button vex-last" ng-click="close()">취소 </button>
     </div>
 </div>
