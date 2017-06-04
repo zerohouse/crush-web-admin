@@ -1,0 +1,86 @@
+<div class="users">
+    <h1>채팅조회</h1>
+    <p>최대 100개 까지 조회 가능.</p>
+    <div>조회된 채팅방 갯수 : {{rooms.length}}</div>
+
+    <div class="input-group">
+        <input ng-model="id" number-only placeholder="아이디"
+               class="form-control">
+        <span class="btn btn-white input-group-addon" ng-click="getRooms(id)">채팅방 조회
+        </span>
+    </div>
+    <div class="input-group">
+        <input class="form-control" ng-model="chatID" placeholder="챗방 만들 유저 ID" number-only="">
+        <span
+                class="input-group-addon btn btn-white" ng-click="newChat(id,chatID)">새로운 챗방 열기(블락되어 있으면 열리지 않음)</span>
+    </div>
+    <p>새로운 챗방 열면 블락되어있을 경우 추가 되지 않음</p>
+
+    <table class="table table-striped" ng-if="rooms.length>0">
+        <thead>
+        <tr>
+            <th>채널주소</th>
+            <th>상태</th>
+            <th>상대방ID</th>
+            <th>이름</th>
+            <th>profile</th>
+            <th>비고</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="room in rooms">
+            <td style="max-width: 100px;    font-size: 8px;    overflow: hidden;    text-overflow: ellipsis;">
+                {{room.channel_url}}
+            </td>
+            <td><span ng-if="room.last_message.message=='MSG_BLOCK'" class="color-red">닫힘</span><span
+                    ng-if="room.last_message.message!=='MSG_BLOCK'" class="color-green">열림</span></td>
+            <td>{{room.member.user_id}}</td>
+            <td>{{room.member.nickname}}</td>
+            <td><img ng-src="{{room.member.profile_url}}" class="max-200"></td>
+            <td><span class="btn btn-danger" ng-click="leaveChat(room, id, room.member.user_id)">나가기</span></td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    <h1>블락유저조회</h1>
+    <p>최대 100개 까지 조회 가능.</p>
+    <div>조회된 유저 갯수 : {{users.length}}</div>
+
+
+    <div class="input-group">
+        <input ng-model="id" number-only placeholder="아이디"
+               class="form-control">
+        <span class="input-group-addon btn btn-white" ng-click="getBlockUsers(id)">블락 유저 조회
+        </span>
+    </div>
+    <div class="input-group">
+        <input class="form-control" ng-model="blockID" placeholder="블락할유저 ID" number-only="">
+        <span
+                class="input-group-addon btn btn-white" ng-click="newBlock(id,blockID)">새로운 유저 블락</span>
+    </div>
+
+
+    <table class="table table-striped" ng-if="users.length>0">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>이름</th>
+            <th>profile</th>
+            <th>블락취소</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="user in users">
+            <td>{{user.user_id}}</td>
+            <td>{{user.nickname}}</td>
+            <td><img ng-src="{{user.profile_url}}" class="max-200"></td>
+            <td>
+                <span ng-click="unblock(id,user, false)" ng-show="!user.unblock" class="btn btn-danger"> 블락취소</span>
+                <span ng-click="unblock(id,user, true)" ng-show="user.unblock" class="btn btn-info"> 다시 블락 하기</span>
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+</div>

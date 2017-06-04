@@ -10,10 +10,20 @@ angular.module('app')
                 url: "/manage/setting",
                 templateUrl: '/pages/setting/setting.html'
             })
+            .state("chat", {
+                url: "/manage/chat",
+                templateUrl: '/pages/chat/chat.html',
+                controller: 'chatCtrl'
+            })
             .state("users", {
                 url: "/manage/users",
                 templateUrl: '/pages/users/users.html',
                 controller: 'usersCtrl'
+            })
+            .state("userTest", {
+                url: "/manage/userTest",
+                templateUrl: '/pages/userTest/users.html',
+                controller: 'userTestCtrl'
             })
             .state("roles", {
                 url: "/manage/users/role",

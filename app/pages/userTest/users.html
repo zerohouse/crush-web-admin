@@ -1,0 +1,87 @@
+<div class="users">
+    <h1>사용자 테스트</h1>
+    <p>테스트 가능 계정은 비밀번호 test로 로그인 가능</p>
+    <form>
+        <div class="form-group">
+            <div class="col-md-9 col-xs-12">
+                <div class="form-group row">
+                    <label class="col-md-1 control-label">ID </label>
+                    <div class="col-md-2">
+                        <input type="text" class="form-control" ng-model="query.id">
+                    </div>
+                    <label class="col-md-1 control-label">Email</label>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" ng-model="query.email">
+                    </div>
+                    <label class="col-md-1 control-label">이름</label>
+                    <div class="col-md-2">
+                        <input type="text" class="form-control" ng-model="query.name">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group bottom0">
+            <div class="col-md-9 col-xs-12">
+                <div class="form-group row">
+                    <label class="col-md-1 col-xs-1 control-label">상태</label>
+                    <div class="col-md-2 col-xs-3">
+                        <select ng-model="query.status" class="form-control">
+                            <option value="">전체</option>
+                            <option value="N">활동중</option>
+                            <option value="P">가입만</option>
+                            <option value="W">심사중</option>
+                            <option value="S">휴면</option>
+                        </select>
+                    </div>
+                    <label class="col-md-1 col-xs-1 control-label">성별</label>
+                    <div class="col-md-2 col-xs-3">
+                        <select ng-model="query.gender" class="form-control">
+                            <option value="">전체</option>
+                            <option value="F">여자</option>
+                            <option value="M">남자</option>
+                        </select>
+                    </div>
+                    <label class="col-md-1 col-xs-1 control-label">한번에</label>
+                    <div class="col-md-2 col-xs-3">
+                        <select ng-model="query.size" ng-options="size as size for size in sizes" class="form-control">
+                        </select>
+                    </div>
+                    <button class="btn btn-default col-md-2 col-xs-2" ng-click="search()">Search</button>
+                </div>
+
+            </div>
+        </div>
+    </form>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Email</th>
+            <th>이름</th>
+            <th>성별</th>
+            <th>상태</th>
+            <th>테스트 가능 여부</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-if="users.length==0">
+            <td colspan="10">해당 검색 결과가 없습니다.</td>
+        </tr>
+        <tr ng-repeat="user in users">
+            <td><a ui-sref="user({id:user.id})">{{user.id}}</a></td>
+            <td>{{user.email}}</td>
+            <td>{{user.score}}</td>
+            <td>{{user.gender}}</td>
+            <td>{{user.status}} {{user.statusName}}</td>
+            <td>
+                <span ng-click="updateForTest(user)">
+
+                    <span ng-show="user.testable" class="color-green">가능</span>
+                    <span ng-show="!user.testable" class="color-red">불가</span>
+                </span>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <pagenation page="query.page" size="query.size" all-size="size"></pagenation>
+</div>
