@@ -1,7 +1,7 @@
 (function () {
     angular.module('app').controller('userCtrl', userCtrl);
     /* @ng-inject */
-    function userCtrl($ajax, $scope, $stateParams, pop, popup, $state, queryService) {
+    function userCtrl($ajax, $scope, $stateParams, pop, popup, $state, queryService, $http) {
 
         $scope.levels = ["ONE", "TWO", "THREE"];
 
@@ -59,6 +59,42 @@
                 $ajax.delete('/admin/user', {id: user.id}).then(function (response) {
                     angular.copy(response, $scope.user);
                     pop.alert("유저상태 변경(삭제)되었습니다.");
+                });
+            });
+        };
+
+        $scope.move = function (picture) {
+            var index = prompt("몇번째?");
+            if (isNaN(index) || index < 1) {
+                pop.alert("이상한 숫자 안받음");
+                return;
+            }
+            $scope.user.imageInfoList.remove(picture);
+            if (index > $scope.user.imageInfoList.length)
+                index = $scope.user.imageInfoList.length + 1;
+            $scope.user.imageInfoList.splice(index - 1, 0, picture);
+            $scope.user.imageInfoList.forEach((pic, i) => {
+                pic.ordering = i + 1;
+            });
+        };
+
+        $scope.newPicture = function (file) {
+            // if (!file) {
+            //     pop.alert("파일없음");
+            //     return;
+            // }
+            $ajax.get("/profile/uploadImage/s3").then(function (r) {
+                var fd = new FormData();
+                fd.append('file', file);
+                angular.forEach(r, (v, k) => {
+                    fd.append(k, v);
+                });
+                var host = r.Host;
+                $http.post("http://" + host, fd, {
+                    transformRequest: angular.identity,
+                    data: fd
+                }).then(function (r) {
+                    console.log(r);
                 });
             });
         };

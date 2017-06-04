@@ -48,16 +48,16 @@
                      readonly="true"></input-and-label>
     <input-and-label label="마지막 로그인" ng-value="user.lastLoggedAt  |  date :'yyyy-MM-dd hh:mm:ss'"
                      readonly="true"></input-and-label>
-
-
     <div>
         <h5>
             프로필 이미지
-            <!--<div class="btn btn-primary" ng-click="newPicture()">이미지 추가</div>-->
+            <div class="btn btn-primary" ng-click="newPicture(image)">이미지 추가</div>
+            <input type="file" ng-model="image">
         </h5>
         <div ng-repeat="picture in user.imageInfoList" class="profile-image">
             <image-upload ng-model="picture.imageUrl" file-type="PROFILE_IMAGE"></image-upload>
             <a class="btn btn-danger" ng-click="user.imageInfoList.remove(picture)">삭제</a>
+            <a class="btn btn-primary" ng-click="move(picture)">순서변경</a>
         </div>
     </div>
 
