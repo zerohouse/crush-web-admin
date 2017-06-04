@@ -1,7 +1,7 @@
 (function () {
     angular.module('app').controller('userCtrl', userCtrl);
     /* @ng-inject */
-    function userCtrl($ajax, $scope, $stateParams, pop, popup, $state, queryService, $http) {
+    function userCtrl($ajax, $scope, $stateParams, pop, popup, $state, queryService, $timeout) {
 
         $scope.levels = ["ONE", "TWO", "THREE"];
 
@@ -78,24 +78,29 @@
             });
         };
 
-        $scope.newPicture = function (file) {
-            // if (!file) {
-            //     pop.alert("파일없음");
-            //     return;
-            // }
+        $scope.newPicture = function () {
             $ajax.get("/profile/uploadImage/s3").then(function (r) {
-                var fd = new FormData();
-                fd.append('file', file);
-                angular.forEach(r, (v, k) => {
-                    fd.append(k, v);
-                });
-                var host = r.Host;
-                $http.post("http://" + host, fd, {
-                    transformRequest: angular.identity,
-                    data: fd
-                }).then(function (r) {
-                    console.log(r);
-                });
+                if (!$("[name=file]").val()) {
+                    pop.alert('파일이 없어요');
+                    return false;
+                }
+                $scope.uploadInfo = r;
+                $timeout(() => {
+                    $('form').attr('action', 'http://' + r.Host);
+                    $('input[type=submit]').click();
+                    $timeout(() => {
+                        var path = "/" + r.key;
+                        var image = {
+                            urlpath: path,
+                            imageUrl: "http://imgcdn.ablesquare.co.kr/300x300/filters:format(jpeg)/image.ablesquare.co.kr" + path,
+                            largeImageUrl: "http://imgcdn.ablesquare.co.kr/720x/filters:format(jpeg)/image.ablesquare.co.kr" + path,
+                        };
+                        $scope.user.imageInfoList.push(image);
+                        $scope.user.imageInfoList.forEach((pic, i) => {
+                            pic.ordering = i + 1;
+                        });
+                    }, 300);
+                }, 300);
             });
         };
 

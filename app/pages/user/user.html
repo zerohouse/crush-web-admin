@@ -49,11 +49,26 @@
     <input-and-label label="마지막 로그인" ng-value="user.lastLoggedAt  |  date :'yyyy-MM-dd hh:mm:ss'"
                      readonly="true"></input-and-label>
     <div>
-        <h5>
+        <h3>
             프로필 이미지
-            <div class="btn btn-primary" ng-click="newPicture(image)">이미지 추가</div>
-            <input type="file" ng-model="image">
-        </h5>
+        </h3>
+        <div>
+            <form action method="post" enctype="multipart/form-data">
+                <input type="hidden" name="key" ng-value="uploadInfo.key"/><br/>
+                <input type="hidden" name="acl" value="public-read"/>
+                <input type="hidden" name="Content-Type" value="image/jpeg"/><br/>
+                <input type="hidden" name="x-amz-meta-uuid" value="14365123651274"/>
+                <input type="hidden" name="X-Amz-Credential" ng-value="uploadInfo['X-Amz-Credential']"/>
+                <input type="hidden" name="X-Amz-Algorithm" value="AWS4-HMAC-SHA256"/>
+                <input type="hidden" name="X-Amz-Date" ng-value="uploadInfo['X-Amz-Date']"/>
+
+                <input type="hidden" name="Policy" ng-value='uploadInfo.Policy'/>
+                <input type="hidden" name="X-Amz-Signature" ng-value="uploadInfo['X-Amz-Signature']"/>
+                <input type="file" ng-model="file" name="file"/> <br/>
+                <input style="display:none;" type="submit" name="submit" value="Upload to Amazon S3"/>
+                <div class="btn btn-primary" ng-click="newPicture()">새로운 이미지 추가</div>
+            </form>
+        </div>
         <div ng-repeat="picture in user.imageInfoList" class="profile-image">
             <image-upload ng-model="picture.imageUrl" file-type="PROFILE_IMAGE"></image-upload>
             <a class="btn btn-danger" ng-click="user.imageInfoList.remove(picture)">삭제</a>
