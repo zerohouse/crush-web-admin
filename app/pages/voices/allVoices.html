@@ -1,11 +1,49 @@
 <div class="users">
     <h1>음성 채팅</h1>
+    <form>
+        <div class="form-group">
+            <div class="col-md-9 col-xs-12">
+                <div class="form-group row">
+                    <label class="col-md-1 control-label">User ID </label>
+                    <div class="col-md-2">
+                        <input type="text" class="form-control" ng-model="query.userId">
+                    </div>
+                    <label class="col-md-1 control-label">Chat Id</label>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control" ng-model="query.chatId">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group bottom0">
+            <div class="col-md-9 col-xs-12">
+                <div class="form-group row">
+                    <label class="col-md-1 col-xs-1 control-label">성별</label>
+                    <div class="col-md-2 col-xs-3">
+                        <select ng-model="query.gender" class="form-control">
+                            <option value="">전체</option>
+                            <option value="F">여자</option>
+                            <option value="M">남자</option>
+                        </select>
+                    </div>
+                    <label class="col-md-1 col-xs-1 control-label">한번에</label>
+                    <div class="col-md-2 col-xs-3">
+                        <select ng-model="query.size" ng-options="size as size for size in sizes" class="form-control">
+                        </select>
+                    </div>
+                    <button class="btn btn-default col-md-2 col-xs-2" ng-click="search()">Search</button>
+                </div>
+
+            </div>
+        </div>
+    </form>
     <table class="table table-striped">
         <thead>
         <tr>
             <th>ID</th>
             <th>보이스</th>
-            <th>유저명</th>
+            <th>유저</th>
+            <th>챗방ID</th>
             <th>등록일자</th>
             <th>상태</th>
         </tr>
@@ -21,7 +59,9 @@
             </td>
             <td>
                 <user-simple user="voice.user"></user-simple>
+                {{voice.user.gender}}
             </td>
+            <td>{{voice.chatId}}</td>
             <td>{{voice.createdAt | date :'yyyy-MM-dd hh:mm:ss'}}</td>
             <td>
                 {{voice.status}}

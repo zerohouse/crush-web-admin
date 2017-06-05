@@ -8,6 +8,8 @@
         else
             queryService.voiceQuery = $scope.query = {size: 10, page: 0};
         $scope.users = [];
+        $scope.sizes = [10, 30, 50];
+
 
         var params = {};
         $scope.more = function () {
@@ -18,6 +20,12 @@
                 $scope.voices = response.list;
                 $scope.size = response.size;
             });
+        };
+
+
+        $scope.search = function () {
+            $scope.query.page = 0;
+            $scope.more();
         };
 
         $scope.$watch('query.page', $scope.more);
