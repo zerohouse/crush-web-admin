@@ -57,7 +57,6 @@
         <tr>
             <th>ID</th>
             <th>Email</th>
-            <th>이름</th>
             <th>성별</th>
             <th>상태</th>
             <th>테스트 가능 여부</th>
@@ -70,7 +69,6 @@
         <tr ng-repeat="user in users">
             <td><a ui-sref="user({id:user.id})">{{user.id}}</a></td>
             <td>{{user.email}}</td>
-            <td>{{user.score}}</td>
             <td>{{user.gender}}</td>
             <td>{{user.status}} {{user.statusName}}</td>
             <td>
