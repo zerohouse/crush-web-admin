@@ -78,6 +78,12 @@
             });
         };
 
+        $scope.password = function () {
+            $ajax.post('/admin/passwordCode', {id: $scope.user.id}).then(function (r) {
+                prompt("패스워드 재설정 주소", 'https://www.ablesquare.co.kr/password/' + r.code);
+            });
+        };
+
         $scope.newPicture = function () {
             $ajax.get("/profile/uploadImage/s3").then(function (r) {
                 if (!$("[name=file]").val()) {
