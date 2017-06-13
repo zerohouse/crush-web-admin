@@ -19,6 +19,59 @@
                 </div>
             </div>
         </div>
+        <div class="form-group">
+            <div class="col-md-9 col-xs-12">
+                <div class="form-group row">
+                    <label class="col-md-1 control-label" uib-tooltip="최근 로그인 시점">로그인</label>
+                    <div class="col-md-2">
+                        <input type="date" uib-datepicker class="form-control" ng-model="minApproveDate">
+                    </div>
+                    <label class="col-md-1 control-label">나이(min)</label>
+                    <div class="col-md-3">
+                        <input type="text" number-only class="form-control" ng-model="query.minAge">
+                    </div>
+                    <label class="col-md-1 control-label">나이(max)</label>
+                    <div class="col-md-2">
+                        <input type="text" number-only class="form-control" ng-model="query.maxAge">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-9 col-xs-12">
+                <div class="form-group row">
+                    <label class="col-md-1 control-label">점수(min)</label>
+                    <div class="col-md-3">
+                        <input type="text" number-only class="form-control" ng-model="query.minScore">
+                    </div>
+                    <label class="col-md-1 control-label">점수(max)</label>
+                    <div class="col-md-2">
+                        <input type="text" number-only class="form-control" ng-model="query.maxScore">
+                    </div>
+
+                    <label class="col-md-1 control-label" tooltip-placement="bottom" uib-tooltip="
+                    HTW_SEOUL,
+                    HTW_DAEJEON,
+                    HTW_CHUNGBUK,
+                    HTW_CHUNGNAM,
+                    HTW_BUSAN,
+                    HTW_ULSAN,
+                    HTW_JEONBUK,
+                    HTW_INCHEON,
+                    HTW_GANGWON,
+                    HTW_GYEONGGI,
+                    HTW_DAEGU,
+                    HTW_GYEONGNAM,
+                    HTW_GYEONGBUK,
+                    HTW_JEJU,
+                    HTW_JEONNAM,
+                    HTW_GWANGJU">지역코드</label>
+                    <div class="col-md-2">
+                        <input type="text" class="form-control" ng-model="query.district">
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="form-group bottom0">
             <div class="col-md-9 col-xs-12">
                 <div class="form-group row">

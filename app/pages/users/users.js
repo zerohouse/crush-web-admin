@@ -10,6 +10,12 @@
         $scope.users = [];
         $scope.sizes = [10, 30, 50];
 
+        $scope.$watch('minApproveDate', date => {
+            if (!date)
+                return;
+            $scope.query.minApproveDate = date.getTime();
+        });
+
         var params = {};
         $scope.more = function () {
             if (angular.equals(params, $scope.query))
