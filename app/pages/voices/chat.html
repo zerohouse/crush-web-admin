@@ -1,0 +1,27 @@
+<div class="users">
+    <h1>신고된 챗방</h1>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>유저</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-if="voices.length==0">
+            <td colspan="7">해당 검색 결과가 없습니다.</td>
+        </tr>
+        <tr ng-repeat="voice in voiceChats">
+            <td><a ng-click="toChat(voice.id)">{{voice.id}}</a></td>
+            <td>
+                <div ng-repeat="userInChat in voice.users">
+                    <user-simple user="userInChat.user"></user-simple>
+                    <span ng-if="userInChat.reported" class="color-red">신고</span>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <pagenation page="query.page" size="query.size" all-size="size"></pagenation>
+</div>
+

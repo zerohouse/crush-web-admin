@@ -55,6 +55,11 @@ angular.module('app')
                 templateUrl: '/pages/voices/allVoices.html',
                 controller: 'allVoicesCtrl'
             })
+            .state("voiceChats", {
+                url: "/manage/voices/chats",
+                templateUrl: '/pages/voices/chat.html',
+                controller: 'voiceChatCtrl'
+            })
             .state("review", {
                 url: "/manage/review/:id",
                 templateUrl: '/pages/review/review.html',
