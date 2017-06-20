@@ -34,7 +34,7 @@
         <thead>
         <tr>
             <th>ID</th>
-            <th class="hide-sm">이름<br> 학교 * 점수</th>
+            <th>이름<br> 학교 * 점수</th>
             <th>Main</th>
             <th>성별</th>
             <th class="hide-sm">타입</th>
@@ -48,7 +48,7 @@
         </tr>
         <tr ng-repeat="user in users">
             <td><a ui-sref="review({id:user.id})">{{user.id}}</a></td>
-            <td class="hide-sm"><b>{{user.name}}</b><br> <span ng-if="user.school" class="color-blue">{{user.school}}</span> <span ng-if="user.score" class="color-green">{{user.score}}</span></td>
+            <td><b>{{user.name}}</b><br> <span ng-if="user.school" class="color-blue">{{user.school}}</span> <span ng-if="user.score" class="color-green">{{user.score}}</span></td>
             <td>
                 <div>
                     <span ng-if="user.reviewType==='UPDATE'">요청</span>
