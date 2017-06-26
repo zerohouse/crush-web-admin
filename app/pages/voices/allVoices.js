@@ -36,6 +36,7 @@
         $scope.review = function (voice, ok) {
             $ajax.post('/admin/voice/approve', {id: voice.id, ok: ok}).then(function (response) {
                 angular.copy(response, voice);
+                voice.status = ok ? 'SHOW_AGAIN' : "BLOCKED";
                 pop.alert('리뷰완료');
             });
         };

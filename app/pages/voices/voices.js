@@ -35,5 +35,14 @@
             });
         };
 
+
+        $scope.review = function (voice, ok) {
+            $ajax.post('/admin/voice/approve', {id: voice.id, ok: ok}).then(function (response) {
+                angular.copy(response, voice);
+                pop.alert('리뷰완료');
+            });
+        };
+
+
     }
 })();
