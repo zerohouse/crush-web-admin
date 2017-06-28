@@ -8,7 +8,7 @@
             <th>유저명</th>
             <th>등록일자</th>
             <th>상태</th>
-            <th>신고정보</th>
+            <th>패스정보</th>
             <th>비고</th>
         </tr>
         </thead>
@@ -34,6 +34,7 @@
                 <div ng-repeat="v in voice.voicePasses">
                     <user-simple user="v.user"></user-simple>
                     {{v.createdAt | date :'yyyy-MM-dd hh:mm:ss'}}
+                    {{v.passType}}
                 </div>
             </td>
             <td>
