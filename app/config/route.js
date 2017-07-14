@@ -70,6 +70,11 @@ angular.module('app')
                 templateUrl: '/pages/log/daily/daily.html',
                 controller: 'dailyCtrl'
             })
+            .state("dailyPointLog", {
+                url: "/manage/dailyPointLog",
+                templateUrl: '/pages/log/dailyPoint/daily.html',
+                controller: 'dailyPointCtrl'
+            })
             .state("purchaseLog", {
                 url: "/manage/log/purchase",
                 templateUrl: '/pages/log/purchase/purchase.html',
