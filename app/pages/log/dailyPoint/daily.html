@@ -1,5 +1,5 @@
 <div>
-    <h5>이벤트 선택</h5>
+    <h4>이벤트 선택 <span class="btn btn-danger" ng-click="toggle(events)">전부 토글</span></h4>
     <form class="form-inline">
         <div class="form-group" ng-repeat="event in events"
              style="margin:5px;padding:5px 10px; border:1px solid #ddd; border-radius: 3px">
@@ -9,7 +9,7 @@
     </form>
 </div>
 <div>
-    <h5>차트 표현</h5>
+    <h4>차트 표현 <span class="btn btn-danger" ng-click="toggle(types)">전부 토글</span></h4>
     <form class="form-inline">
         <div class="form-group" ng-repeat="type in types"
              style="margin:5px;padding:5px 10px; border:1px solid #ddd; border-radius: 3px">
@@ -18,8 +18,27 @@
         </div>
     </form>
 </div>
-<div class="btn btn-lg btn-primary" ng-click="drawChart()">차트 그리기</div>
-<canvas id="line" class="chart chart-line" chart-data="data"
-        chart-labels="labels" chart-series="series" chart-options="options"
-        chart-dataset-override="datasetOverride" chart-click="onClick">
-</canvas>
+
+<div ng-show="series.length>0">
+    <h4>차트</h4>
+    <canvas id="line" class="chart chart-line" chart-data="data"
+            chart-labels="labels" chart-series="series" chart-options="options"
+            chart-dataset-override="datasetOverride" chart-click="onClick">
+    </canvas>
+
+    <h4>표</h4>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>일자</th>
+            <th ng-repeat="select in series">{{select}}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="date in labels">
+            <td scope="row">{{date}}</td>
+            <td ng-repeat="select in series">{{data[$index][$parent.$index]}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

@@ -4,6 +4,10 @@ var list = [];
     /* @ng-inject */
     function dailyPointCtrl($ajax, $scope) {
 
+        $scope.toggle = function (array) {
+            array.forEach(c => c.select = !c.select);
+        };
+
         function CashEvent(type, name, amount) {
             this.type = type;
             this.name = name;
@@ -37,12 +41,12 @@ var list = [];
         }
 
         $scope.types = [
-            new Type(log => log.famount + log.mamount, "합계(양)"),
-            new Type(log => log.mamount, "남자(양)"),
-            new Type(log => log.famount, "여자(양)"),
-            new Type(log => log.fsize + log.msize, "합계(횟수)"),
-            new Type(log => log.msize, "남자(횟수)"),
-            new Type(log => log.fsize, "여자(횟수)"),
+            new Type(log => log.famount + log.mamount, "합계-양"),
+            new Type(log => log.mamount, "남자-양"),
+            new Type(log => log.famount, "여자-양"),
+            new Type(log => log.fsize + log.msize, "합계-횟수"),
+            new Type(log => log.msize, "남자-횟수"),
+            new Type(log => log.fsize, "여자-횟수"),
         ];
 
         var labels = [];
@@ -52,15 +56,21 @@ var list = [];
             list.forEach(log => labels.pushIfNotExist(log.day));
         });
 
-        $scope.drawChart = drawChart;
+        var watch = $scope.$watch('types', drawChart, true);
+        var ewatch = $scope.$watch('events', drawChart, true);
+
+        $scope.$on('$destroy', function () {
+           watch();
+           ewatch();
+        });
 
         function drawChart() {
-            var selects = $scope.events.filter(e => e.select).map(e => e.type);
+            var selects = $scope.selects = $scope.events.filter(e => e.select).map(e => e.type);
             var types = $scope.types.filter(e => e.select);
             if (selects.length === 0 || types.length === 0)
                 return;
-            var series = [];
-            var data = [];
+            var series = $scope.series = [];
+            var data = $scope.data = [];
             types.forEach(t => {
                 selects.forEach(s => {
                     series.push(`${s}(${t.name})`);
