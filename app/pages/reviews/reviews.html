@@ -59,7 +59,7 @@
                     <img-list list="user.imageList"></img-list>
                 </div>
             </td>
-            <td>{{user.gender}}</td>
+            <td ng-class="{redbold:user.gender!=='M'}">{{user.gender}}</td>
             <td class="hide-sm">{{user.reviewType}}</td>
             <td class="hide-sm">{{user.reviewRegisteredAt | date :'yyyy-MM-dd hh:mm:ss'}}</td>
             <td>
