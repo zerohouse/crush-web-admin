@@ -128,7 +128,7 @@
             <td><img img-default ng-src="{{user.mainImageUrl}}"></td>
             <td>{{user.name}}</td>
             <td>{{user.score}}</td>
-            <td>{{user.gender}}</td>
+            <td ng-class="{redbold:user.gender!=='M'}">{{user.gender}}</td>
             <td>{{user.status}} {{user.statusName}}</td>
             <td>{{user.regDttm | date :'yyyy-MM-dd hh:mm:ss'}}</td>
             <td>
