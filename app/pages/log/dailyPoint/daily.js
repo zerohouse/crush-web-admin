@@ -27,13 +27,16 @@ var list = [];
             new CashEvent("CANCEL_UNBLOCKCHAT", "채팅방 잠금해제비용 보상", 30),
             new CashEvent("STORE_REVIEW", "리뷰 쓰러가기 보상", 10),
             new CashEvent("TODAY_LOGINPOINT", "일일 로그인 무료지급", 2),
+            new CashEvent("VOICE_MAN_START_RECORD", "남자 최초 보이스 녹음", -10),
+            new CashEvent("VOICE_MAN_REPLY_RECORD", "남자 최초 보이스 답장", -15),
             new CashEvent("IAP_CHARGE", "스토어 구매 충전"),
             new CashEvent("SMS_INVITE", "초대하기 무료지급"),
             new CashEvent("TEST", "개발용 테스트 지급/차감"),
             new CashEvent("ADMIN_POINT", "운영자 지급/차감"),
             new CashEvent("SIGNUP_POINT", "회원가입 축하 지급"),
             new CashEvent("OPEN_LOCAL_TODAYCARD", "지역별 투데이 카드 더보기"),
-            new CashEvent("OPEN_CUSTOM_TODAY", "맞춤 소개 받기")];
+            new CashEvent("OPEN_CUSTOM_TODAY", "맞춤 소개 받기")
+        ];
 
         function Type(fn, name) {
             this.name = name;
