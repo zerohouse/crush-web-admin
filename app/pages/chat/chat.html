@@ -38,7 +38,7 @@
             <td>{{room.member.nickname}}</td>
             <td><img ng-src="{{room.member.profile_url}}" class="max-200"></td>
             <td><span class="btn btn-danger" ng-click="leaveChat(room, id, room.member.user_id)">나가기</span></td>
-            <td><span class="btn btn-danger" ng-click="deleteChat(room.channel_url)">삭제</span></td>
+            <td><span class="btn btn-danger" ng-click="deleteChat(room, room.channel_url)">삭제</span></td>
         </tr>
         </tbody>
     </table>

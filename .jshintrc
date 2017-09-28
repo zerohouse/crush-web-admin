@@ -17,7 +17,8 @@
     "moment": true,
     "_": true,
     "alert": true,
-    "prompt": true
+    "prompt": true,
+    "confirm": true
   },
   "validthis": true
 }

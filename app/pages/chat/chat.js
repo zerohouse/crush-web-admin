@@ -1,5 +1,6 @@
 (function () {
     angular.module('app').controller('chatCtrl', chatCtrl);
+
     /* @ng-inject */
     function chatCtrl($ajax, $scope) {
         $scope.getRooms = function (id) {
@@ -44,8 +45,10 @@
             });
         };
 
-        $scope.deleteChat = function (room) {
-            $ajax.post('/admin/user/chat/delete', {url: room}).then(function () {
+        $scope.deleteChat = function (room, url) {
+            if (!confirm("챗방 삭제합니다?"))
+                return;
+            $ajax.post('/admin/user/chat/delete', {url: url}).then(function () {
                 $scope.rooms.remove(room);
             });
         };
