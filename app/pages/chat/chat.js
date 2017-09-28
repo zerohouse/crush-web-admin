@@ -44,6 +44,11 @@
             });
         };
 
+        $scope.deleteChat = function (room) {
+            $ajax.post('/admin/user/chat/delete', {url: room}).then(function () {
+                $scope.rooms.remove(room);
+            });
+        };
 
     }
 })();
