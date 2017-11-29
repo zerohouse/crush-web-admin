@@ -1,7 +1,8 @@
 (function () {
     angular.module('app').controller('dailyCtrl', dailyCtrl);
+
     /* @ng-inject */
-    function dailyCtrl($ajax, $scope, queryService, $timeout) {
+    function dailyCtrl($ajax, $scope, queryService, $timeout, $rootScope) {
 
         if (queryService.dailyQuery)
             $scope.query = queryService.dailyQuery;
@@ -9,6 +10,10 @@
             queryService.dailyQuery = $scope.query = {size: 30, page: 0};
 
         var params = {};
+
+        $scope.detail = function () {
+            return $rootScope.user.permissions.contains("DAILY_LOG_DETAIL");
+        };
 
         $scope.more = function () {
             if (angular.equals(params, $scope.query))

@@ -15,13 +15,13 @@
         <th>신규 프로필전환(남)</th>
         <th>신규 가입(여)</th>
         <th>신규 프로필전환(여)</th>
-        <th>라이크 건수</th>
-        <th>응답수락</th>
-        <th>유저평가</th>
-        <th>충전 포인트(버찌)</th>
-        <th>사용 포인트(버찌)</th>
-        <th>결제건수</th>
-        <th>결제금액</th>
+        <th ng-if="detail()">라이크 건수</th>
+        <th ng-if="detail()">응답수락</th>
+        <th ng-if="detail()">유저평가</th>
+        <th ng-if="detail()">충전 포인트(버찌)</th>
+        <th ng-if="detail()">사용 포인트(버찌)</th>
+        <th ng-if="detail()">결제건수</th>
+        <th ng-if="detail()">결제금액</th>
     </tr>
     </thead>
     <tbody>
@@ -35,13 +35,13 @@
         <td>{{log.mprofilePassedTodayUserCount}}</td>
         <td>{{log.ftodayNewUserCount}}</td>
         <td>{{log.fprofilePassedTodayUserCount}}</td>
-        <td>{{log.todayLikeCount}}</td>
-        <td>{{log.todayLikeRespondCount}}</td>
-        <td>{{log.todayFavorCount}}</td>
-        <td>{{log.chargedPoint}}</td>
-        <td>{{log.usedPoint}}</td>
-        <td>{{log.paidCount}}</td>
-        <td>{{log.paidPrice}}</td>
+        <td ng-if="detail()">{{log.todayLikeCount}}</td>
+        <td ng-if="detail()">{{log.todayLikeRespondCount}}</td>
+        <td ng-if="detail()">{{log.todayFavorCount}}</td>
+        <td ng-if="detail()">{{log.chargedPoint}}</td>
+        <td ng-if="detail()">{{log.usedPoint}}</td>
+        <td ng-if="detail()">{{log.paidCount}}</td>
+        <td ng-if="detail()">{{log.paidPrice}}</td>
     </tr>
     </tbody>
 </table>
