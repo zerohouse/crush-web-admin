@@ -12,7 +12,7 @@
         var params = {};
 
         $scope.detail = function () {
-            return $rootScope.user.permissions.contains("DAILY_LOG_DETAIL");
+            return $rootScope.user && $rootScope.user.permissions.contains("DAILY_LOG_DETAIL");
         };
 
         $scope.more = function () {
