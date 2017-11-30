@@ -35,13 +35,13 @@
         <td>{{log.mprofilePassedTodayUserCount}}</td>
         <td>{{log.ftodayNewUserCount}}</td>
         <td>{{log.fprofilePassedTodayUserCount}}</td>
-        <td ng-if="detail()">{{log.todayLikeCount}}</td>
-        <td ng-if="detail()">{{log.todayLikeRespondCount}}</td>
-        <td ng-if="detail()">{{log.todayFavorCount}}</td>
-        <td ng-if="detail()">{{log.chargedPoint}}</td>
-        <td ng-if="detail()">{{log.usedPoint}}</td>
-        <td ng-if="detail()">{{log.paidCount}}</td>
-        <td ng-if="detail()">{{log.paidPrice}}</td>
+        <td ng-show="detail()">{{log.todayLikeCount}}</td>
+        <td ng-show="detail()">{{log.todayLikeRespondCount}}</td>
+        <td ng-show="detail()">{{log.todayFavorCount}}</td>
+        <td ng-show="detail()">{{log.chargedPoint}}</td>
+        <td ng-show="detail()">{{log.usedPoint}}</td>
+        <td ng-show="detail()">{{log.paidCount}}</td>
+        <td ng-show="detail()">{{log.paidPrice}}</td>
     </tr>
     </tbody>
 </table>
