@@ -79,6 +79,7 @@ var list = [];
                 selects.forEach(s => {
                     series.push(`${s}(${t.name})`);
                     var values = list.filter(log => s === log.cashEvent).map(t.fn);
+                    console.log(values.length, labels.length);
                     for (var i = 0; i < labels.length - values.length; i++)
                         values.unshift(0);
                     data.push(values);
