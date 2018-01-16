@@ -1,6 +1,7 @@
 var list = [];
 (function () {
     angular.module('app').controller('dailyPointCtrl', dailyPointCtrl);
+
     /* @ng-inject */
     function dailyPointCtrl($ajax, $scope) {
 
@@ -63,8 +64,8 @@ var list = [];
         var ewatch = $scope.$watch('events', drawChart, true);
 
         $scope.$on('$destroy', function () {
-           watch();
-           ewatch();
+            watch();
+            ewatch();
         });
 
         function drawChart() {
@@ -77,7 +78,10 @@ var list = [];
             types.forEach(t => {
                 selects.forEach(s => {
                     series.push(`${s}(${t.name})`);
-                    data.push(list.filter(log => s === log.cashEvent).map(t.fn));
+                    var values = list.filter(log => s === log.cashEvent).map(t.fn);
+                    for (var i = 0; i < labels.length - values.length; i++)
+                        values.unshift(0);
+                    data.push(values);
                 });
             });
             makeChart(data, series, labels);
