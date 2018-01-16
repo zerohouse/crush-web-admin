@@ -80,8 +80,10 @@ var list = [];
                     series.push(`${s}(${t.name})`);
                     var values = list.filter(log => s === log.cashEvent).map(t.fn);
                     console.log(values.length, labels.length);
-                    for (var i = 0; i < labels.length - values.length; i++)
-                        values.unshift(0);
+                    for (var i = 0; i < labels.length - values.length; i++) {
+                        values.unshift(i);
+                        console.log(i);
+                    }
                     data.push(values);
                 });
             });
