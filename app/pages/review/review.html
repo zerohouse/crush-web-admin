@@ -28,6 +28,19 @@
             <tr now-and-requested-code label="좋아하는 것" data="user" key="favorites"></tr>
             <tr now-and-requested-code label="취미" data="user" key="hobbies"></tr>
             <tr>
+                <td>보이스</td>
+                <td>
+                    <audio controls>
+                        <source src="{{user.voiceRequest}}">
+                    </audio>
+                </td>
+                <td>
+                    <audio controls>
+                        <source src="{{user.voice}}">
+                    </audio>
+                </td>
+            </tr>
+            <tr>
                 <td>등록일자</td>
                 <td>{{user.requested.reviewRegisteredAt | date}}</td>
                 <td>{{user.now.reviewRegisteredAt | date}}</td>

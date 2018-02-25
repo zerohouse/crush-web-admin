@@ -115,7 +115,7 @@
             <th>성별</th>
             <th>상태</th>
             <th>등록일자</th>
-            <th>비고</th>
+            <th>보이스</th>
         </tr>
         </thead>
         <tbody>
@@ -132,7 +132,9 @@
             <td>{{user.status}} {{user.statusName}}</td>
             <td>{{user.regDttm | date :'yyyy-MM-dd hh:mm:ss'}}</td>
             <td>
-                <a ui-sref="user({id:user.id})" class="btn btn-default" role="button">보기</a>
+                <audio controls  >
+                    <source src="{{user.voice}}">
+                </audio>
             </td>
         </tr>
         </tbody>

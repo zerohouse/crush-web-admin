@@ -36,6 +36,7 @@
             <th>ID</th>
             <th>이름<br> 학교 * 점수</th>
             <th>Main</th>
+            <th>보이스</th>
             <th>성별</th>
             <th class="hide-sm">타입</th>
             <th class="hide-sm">등록일자</th>
@@ -48,7 +49,8 @@
         </tr>
         <tr ng-repeat="user in users">
             <td><a ui-sref="review({id:user.id})">{{user.id}}</a></td>
-            <td><b>{{user.name}}</b><br> <span ng-if="user.school" class="color-blue">{{user.school}}</span> <span ng-if="user.score" class="color-green">{{user.score}}</span></td>
+            <td><b>{{user.name}}</b><br> <span ng-if="user.school" class="color-blue">{{user.school}}</span> <span
+                    ng-if="user.score" class="color-green">{{user.score}}</span></td>
             <td>
                 <div>
                     <span ng-if="user.reviewType==='UPDATE'">요청</span>
@@ -57,6 +59,21 @@
                 <div ng-if="user.imageList">
                     <span ng-if="user.reviewType==='UPDATE'">현재</span>
                     <img-list list="user.imageList"></img-list>
+                </div>
+            </td>
+            <td>
+                <div>
+                    요청
+                    <audio controls>
+                        <source src="{{user.voiceRequest}}">
+                    </audio>
+
+                </div>
+                <div>
+                    현재
+                    <audio controls>
+                        <source src="{{user.voice}}">
+                    </audio>
                 </div>
             </td>
             <td ng-class="{redbold:user.gender!=='M'}">{{user.gender}}</td>

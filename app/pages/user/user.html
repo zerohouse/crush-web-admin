@@ -10,7 +10,8 @@
         <a class="btn btn-danger" ng-click="delete(user)">삭제</a>
     </h3>
     <input-and-label label="평점" ng-model="user.score"></input-and-label>
-
+    <input-and-label label="페북아이디" ng-model="user.facebookId"></input-and-label>
+    <input-and-label label="폰번호" ng-model="user.phone"></input-and-label>
     <input-and-label label="이메일" ng-model="user.email"></input-and-label>
     <input-and-label label="이름" ng-model="user.name"></input-and-label>
     <input-and-label label="생년" ng-model="user.birthDate"></input-and-label>
@@ -76,6 +77,7 @@
             <a class="btn btn-primary" ng-click="move(picture)">순서변경</a>
         </div>
     </div>
+
 
 
 </div>
