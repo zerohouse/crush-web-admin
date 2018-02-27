@@ -36,7 +36,8 @@ var list = [];
             new CashEvent("ADMIN_POINT", "운영자 지급/차감"),
             new CashEvent("SIGNUP_POINT", "회원가입 축하 지급"),
             new CashEvent("OPEN_LOCAL_TODAYCARD", "지역별 투데이 카드 더보기"),
-            new CashEvent("OPEN_CUSTOM_TODAY", "맞춤 소개 받기")
+            new CashEvent("OPEN_CUSTOM_TODAY", "맞춤 소개 받기"),
+            new CashEvent("EVALUATE_BONUS", "평가 보너스", 1)
         ];
 
         function Type(fn, name) {
