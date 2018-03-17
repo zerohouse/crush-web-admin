@@ -1,0 +1,59 @@
+<ul>
+    <li>
+        관계는 <input type="number" ng-model="values.RELATION_VALID_DAYS" disabled>일간 유효하다.
+    </li>
+    <li>
+        <input type="checkbox" ng-model="values.IS_ON_REVIEW"> 체크 되어 있으면 IOS 리뷰가 보인다
+    </li>
+    <li>
+        가입시 기본 <input type="number" ng-model="values.DEFAULT_POINT">포인트를 준다.
+    </li>
+    <li>
+        <input type="number" ng-model="values.MALE_MATCH_SCORE">점 이상이며, 최근 <input type="number"
+                                                                                  ng-model="values.LAST_LOGGED_DAY_FOR_MATCHED_MAN">일
+        내에
+        로그인 기록이 있는 남자만 매칭된다.
+    </li>
+    <li>
+        <input type="number" ng-model="values.FEMALE_MATCH_SCORE">점 이상이며, 최근 <input type="number"
+                                                                                    ng-model="values.LAST_LOGGED_DAY_FOR_MATCHED_WOMAN">일
+        내에 로그인 기록이 있는 여자만 매칭된다.
+    </li>
+    <li>
+        <input type="number" ng-model="values.MALE_EVAL_SCORE">점 이상이며, 최근 <input type="number"
+                                                                                 ng-model="values.LAST_LOGGED_DAY_FOR_EVAL_MAN">일
+        내에 로그인 기록이 있는 남자만 평가에 뜬다.
+    </li>
+    <li>
+        <input type="number" ng-model="values.FEMALE_EVAL_SCORE">점 이상이며, 최근 <input type="number"
+                                                                                   ng-model="values.LAST_LOGGED_DAY_FOR_EVAL_WOMAN">일
+        내에 로그인 기록이 있는 여자만 평가에 뜬다.
+    </li>
+    <li>
+        프로필 미입력자는 <input type="number" ng-model="values.NO_PROFILE_MATCH_SCORE">점 이상인 유저가 뜬다.
+    </li>
+    <li>
+        남자는 매일 접속시 <input type="number" ng-model="values.MALE_LOGIN_POINT">포인트, <input type="number"
+                                                                                       ng-model="values.LOGIN_BONUS_DAY">일째
+        접속시 <input type="number" ng-model="values.MALE_LOGIN_BONUS_POINT">포인트를 준다.
+    </li>
+    <li>
+        여자는 매일 접속시 <input type="number" ng-model="values.FEMALE_LOGIN_POINT">포인트, <input type="number"
+                                                                                         ng-model="values.LOGIN_BONUS_DAY">일째
+        접속시 <input type="number" ng-model="values.FEMALE_LOGIN_BONUS_POINT">포인트를 준다.
+    </li>
+    <li>
+        남자는 매 10분마다 <input type="number" ng-model="values.EVAL_FOR_MAN">개의 카드를 평가할 수 있다.
+    </li>
+    <li>
+        여자는 매 10분마다 <input type="number" ng-model="values.EVAL_FOR_WOMAN">개의 카드를 평가할 수 있다.
+    </li>
+    <li>
+        평가를 <input type="number" ng-model="values.VALUATION_BONUS_PER">개 할때마다 <input type="number"
+                                                                                     ng-model="values.VALUATION_BONUS_AMOUNT">의
+        포인트를 보너스로 준다..
+    </li>
+    <li>
+        보이스는 하루에 <input type="number" ng-model="values.VOICE_MAX_REPLY_COUNT_PER_DAY">개의 답장을 받으면 더이상 전달되지 않는다.
+    </li>
+</ul>

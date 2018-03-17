@@ -4,17 +4,17 @@
         <div class="form-group">
             <div class="col-md-9 col-xs-12">
                 <div class="form-group row">
-                    <label class="col-md-1 control-label">ID </label>
                     <div class="col-md-2">
-                        <input type="text" class="form-control" ng-model="query.id">
+                        <input type="text" class="form-control" ng-model="query.id" placeholder="id">
                     </div>
-                    <label class="col-md-1 control-label">Email</label>
                     <div class="col-md-3">
-                        <input type="text" class="form-control" ng-model="query.email">
+                        <input type="text" class="form-control" ng-model="query.email" placeholder="email">
                     </div>
-                    <label class="col-md-1 control-label">이름</label>
                     <div class="col-md-2">
-                        <input type="text" class="form-control" ng-model="query.name">
+                        <input type="text" class="form-control" ng-model="query.name" placeholder="name">
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" class="form-control" ng-model="query.phone" placeholder="phone">
                     </div>
                 </div>
             </div>
@@ -114,6 +114,7 @@
             <th>평점</th>
             <th>성별</th>
             <th>상태</th>
+            <th>OS</th>
             <th>등록일자</th>
             <th>보이스</th>
         </tr>
@@ -130,9 +131,10 @@
             <td>{{user.score}}</td>
             <td ng-class="{redbold:user.gender!=='M'}">{{user.gender}}</td>
             <td>{{user.status}} {{user.statusName}}</td>
+            <td>{{user.os}}</td>
             <td>{{user.regDttm | date :'yyyy-MM-dd hh:mm:ss'}}</td>
             <td>
-                <audio controls  >
+                <audio controls>
                     <source src="{{user.voice}}">
                 </audio>
             </td>

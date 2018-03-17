@@ -1,0 +1,7 @@
+<div class="users">
+    <h1>설정(현재값)</h1>
+    <values values="now"></values>
+    <button ng-click="save(now)">업데이트</button>
+    <h1 ng-if="update">설정(업데이트예정) - 매 15분, 45분에 업데이트 반영됨.</h1>
+    <values ng-if="update" values="update"></values>
+</div>

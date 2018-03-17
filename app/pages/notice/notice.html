@@ -1,0 +1,22 @@
+<div class="users">
+    <h1>공지 변경</h1>
+
+    <div ng-show="edit">
+        <div ng-if="edit.id">id:{{edit.id}} 생성 날짜:{{edit.createdAt | date}} 최종수정:{{edit.updatedAt | date}}</div>
+        <input ng-model="edit.title" placeholder="제목">
+        <button ng-click="save(edit)">저장</button>
+        <button ng-click="edit=false">취소</button>
+        <wysiwyg-edit ng-if="edit" content="edit.body"></wysiwyg-edit>
+    </div>
+
+
+    <div ng-show="!edit">
+        <div ng-repeat="notice in notices | orderBy : 'id' : true">
+            {{notice.title}}
+            <button ng-click="editNotice(notice)">편집</button>
+            <button ng-click="delete(notice)">삭제</button>
+        </div>
+        <button ng-click="newNotice()">새공지</button>
+        <button ng-click="show()">공지 페이지</button>
+    </div>
+</div>

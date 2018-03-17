@@ -7,7 +7,7 @@ module.exports = {
             dest: '<%= config.dist %>',
             src: [
                 'images/**/*.*',
-                'terms/**/*.*',
+                'scripts/**/*.*',
                 'index.html'
             ]
         }, {

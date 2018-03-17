@@ -7,7 +7,7 @@ module.exports = {
     livereload: {
         proxies: [
             {
-                context: ['/admin', '/profile', '/account', '/systemCheck'], host: '127.0.0.1',
+                context: ['/admin', '/notice', '/profile', '/account', '/systemCheck'], host: '127.0.0.1',
                 port: 8080
             }
         ],
@@ -24,7 +24,7 @@ module.exports = {
                         connect.static('./bower_components')
                     ),
                     connect.static("app"),
-                    function(req, res, next) {
+                    function (req, res, next) {
                         res.setHeader('Access-Control-Allow-Origin', '*');
                         res.setHeader('Access-Control-Allow-Methods', '*');
                         next();

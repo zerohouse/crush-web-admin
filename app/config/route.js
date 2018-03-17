@@ -10,6 +10,16 @@ angular.module('app')
                 url: "/manage/setting",
                 templateUrl: '/pages/setting/setting.html'
             })
+            .state("notice", {
+                url: "/manage/notice",
+                templateUrl: '/pages/notice/notice.html',
+                controller: 'noticeCtrl'
+            })
+            .state("values", {
+                url: "/manage/values",
+                templateUrl: '/pages/values/values.html',
+                controller: 'valuesCtrl'
+            })
             .state("chat", {
                 url: "/manage/chat",
                 templateUrl: '/pages/chat/chat.html',

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>그당반 공지사항</title>
+</head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<style>
+    .date {
+        color: #9e9e9e;
+        font-size: 80%;
+    }
+
+    .body {
+        padding: 10px 10px 20px;
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+    }
+
+    td {
+        padding: 10px;
+        /*background: #f4f4f4;*/
+        /*border-top: 1px solid #eee;*/
+        border-bottom: 1px solid #eee;
+    }
+
+    table {
+        width: 100%;
+    }
+
+</style>
+<body>
+<div class="container" ng-controller="noticeCtrl">
+    <div class="body" ng-show="selected">
+        <h1>{{selected.title}}</h1>
+        <div ng-bind-html="selected.body | trust"></div>
+    </div>
+    <table class="table">
+        <tbody>
+        <tr ng-repeat="notice in notices  | orderBy : 'id' : true" ng-click="select(notice)">
+            <td scope="row">
+                <div>{{notice.title}}</div>
+                <div class="date">{{notice.updatedAt | date : "yyyy.MM.dd"}}</div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular-sanitize.min.js"></script>
+<script>
+    angular.module('app', [
+        'ngSanitize'
+    ]);
+    angular.module('app').controller('noticeCtrl', function ($scope, $http) {
+        $http.get("/notice").then(function (res) {
+            $scope.notices = res.data;
+        });
+        $scope.select = function (select) {
+            $scope.selected = select;
+        }
+    });
+    angular.module('app').filter('trust', [
+        '$sce',
+        function ($sce) {
+            return function (value) {
+                return $sce.trustAsHtml(value);
+            }
+        }
+    ]);
+</script>
+</body>
+
+</html>

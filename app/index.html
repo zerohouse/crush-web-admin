@@ -48,6 +48,16 @@
     <script src="/bower_components/chart.js/dist/Chart.js"></script>
     <script src="/bower_components/angular-chart.js/dist/angular-chart.js"></script>
     <script src="/bower_components/ng-dialog/js/ngDialog.js"></script>
+    <script src="/bower_components/rangy/rangy-core.js"></script>
+    <script src="/bower_components/rangy/rangy-classapplier.js"></script>
+    <script src="/bower_components/rangy/rangy-highlighter.js"></script>
+    <script src="/bower_components/rangy/rangy-selectionsaverestore.js"></script>
+    <script src="/bower_components/rangy/rangy-serializer.js"></script>
+    <script src="/bower_components/rangy/rangy-textrange.js"></script>
+    <script src="/bower_components/textAngular/dist/textAngular.js"></script>
+    <script src="/bower_components/textAngular/dist/textAngular-sanitize.js"></script>
+    <script src="/bower_components/textAngular/dist/textAngularSetup.js"></script>
+    <script src="/bower_components/ngWYSIWYG/dist/wysiwyg.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -78,6 +88,7 @@
     <script src="/directive/user-profile/user-profile.js"></script>
     <script src="/directive/user-simple/user-simple.js"></script>
     <script src="/directive/userinformation/userinformation.js"></script>
+    <script src="/directive/values/values.js"></script>
     <script src="/filter/trustFilter.js"></script>
     <script src="/lib/moment.ko.js"></script>
     <script src="/lib/ui-bootstrap-custom-tpls-2.5.0.min.js"></script>
@@ -88,6 +99,7 @@
     <script src="/pages/log/like/like.js"></script>
     <script src="/pages/log/point/point.js"></script>
     <script src="/pages/log/purchase/purchase.js"></script>
+    <script src="/pages/notice/notice.js"></script>
     <script src="/pages/push/push.js"></script>
     <script src="/pages/review/review.js"></script>
     <script src="/pages/review/td-now-and-requested-code.js"></script>
@@ -99,6 +111,7 @@
     <script src="/pages/users/approval/approval.js"></script>
     <script src="/pages/users/users.js"></script>
     <script src="/pages/users/voice/voice.js"></script>
+    <script src="/pages/values/values.js"></script>
     <script src="/pages/voices/allVoices.js"></script>
     <script src="/pages/voices/chat.js"></script>
     <script src="/pages/voices/voices.js"></script>
@@ -107,7 +120,6 @@
     <script src="/service/popup/popup.service.js"></script>
     <script src="/service/query.service.js"></script>
     <script src="/service/review.service.js"></script>
-    <script src="/template.js"></script>
     <!-- /include -->
     <!-- endbuild -->
 
@@ -117,6 +129,8 @@
     <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css" />
     <link rel="stylesheet" href="/bower_components/ng-dialog/css/ngDialog.css" />
     <link rel="stylesheet" href="/bower_components/ng-dialog/css/ngDialog-theme-default.css" />
+    <link rel="stylesheet" href="/bower_components/textAngular/dist/textAngular.css" />
+    <link rel="stylesheet" href="/bower_components/ngWYSIWYG/dist/editor.min.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) /styles/main.css -->
@@ -130,6 +144,7 @@
     <link href="/directive/radiobuttons/radiobutton.css" rel="stylesheet" type="text/css">
     <link href="/directive/user-profile/user-profile.css" rel="stylesheet" type="text/css">
     <link href="/directive/userinformation/userinformation.css" rel="stylesheet" type="text/css">
+    <link href="/directive/values/values.css" rel="stylesheet" type="text/css">
     <link href="/pages/404/404.css" rel="stylesheet" type="text/css">
     <link href="/pages/user/profile-image.css" rel="stylesheet" type="text/css">
     <link href="/pages/user/user-detail.css" rel="stylesheet" type="text/css">
@@ -151,7 +166,8 @@
     <!-- endbuild -->
 
     <!-- 직접 관리할 스타일시트 -->
-    <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet" type="text/css">
+    <link rel='stylesheet' href='/bower_components/textAngular/dist/textAngular.css'>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 </head>
 <body ng-cloak>

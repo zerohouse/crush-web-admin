@@ -9,5 +9,6 @@ angular
         'ngMessages',
         // 'ngFileUpload',
         'ui.bootstrap',
-        'ngDialog'
+        'ngDialog',
+        'ngWYSIWYG'
     ]);
