@@ -61,7 +61,7 @@
     </div>
     <table>
         <tbody>
-        <tr ng-repeat="notice in notices  | orderBy : 'id' : true" ng-click="select(notice)">
+        <tr ng-repeat="notice in notices  | orderBy : ['noti','id'] : true" ng-click="select(notice)">
             <td style="width:55px;">
                 <span class="left"><svg fill="#ccc" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                         viewBox="0 0 24 24"><path

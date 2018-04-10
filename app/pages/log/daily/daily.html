@@ -22,6 +22,8 @@
         <th ng-if="detail()">사용 포인트(버찌)</th>
         <th ng-if="detail()">결제건수</th>
         <th ng-if="detail()">결제금액</th>
+        <th ng-if="detail()">남자 보이스</th>
+        <th ng-if="detail()">여자 보이스</th>
     </tr>
     </thead>
     <tbody>
@@ -42,6 +44,8 @@
         <td ng-show="detail()">{{log.usedPoint}}</td>
         <td ng-show="detail()">{{log.paidCount}}</td>
         <td ng-show="detail()">{{log.paidPrice}}</td>
+        <td ng-show="detail()">{{log.voiceMan}}</td>
+        <td ng-show="detail()">{{log.voiceWoman}}</td>
     </tr>
     </tbody>
 </table>
