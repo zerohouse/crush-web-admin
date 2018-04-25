@@ -1,5 +1,6 @@
 (function () {
     angular.module('app').controller('userCtrl', userCtrl);
+
     /* @ng-inject */
     function userCtrl($ajax, $scope, $stateParams, pop, popup, $state, queryService, $timeout) {
 
@@ -11,6 +12,7 @@
         ];
 
         $scope.user = new User();
+
         function User() {
         }
 
@@ -51,6 +53,15 @@
             $ajax.put('/admin/user', user, true).then(function (response) {
                 angular.copy(response, $scope.user);
                 pop.alert("수정되었습니다.");
+            });
+        };
+
+        $scope.reset = function (user) {
+            popup.confirm(`ID:${user.id} 유저를 초기화합니다.`).then(function () {
+                $ajax.put('/admin/user/reset', user, true).then(function (response) {
+                    angular.copy(response, $scope.user);
+                    pop.alert("초기화 되었습니다.");
+                });
             });
         };
 
