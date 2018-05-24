@@ -19,10 +19,8 @@
     }
 
     .body {
-        padding: 40px 0;
-        border-top: 1px solid #eee;
-        border-bottom: 1px solid #eee;
-        margin: 40px 0;
+        padding: 5px;
+        /*margin: 0px 0;*/
     }
 
     table {
@@ -61,22 +59,33 @@
 </style>
 <body>
 <div class="container" ng-class="'show'" style="display:none" ng-controller="noticeCtrl">
-    <div ng-show="selected">
-        <h3 style="margin-top:20px">{{selected.title}}</h3>
-        <div class="body" ng-bind-html="selected.body | trust"></div>
-    </div>
+    <!--<div ng-show="selected">-->
+    <!--<h3 style="margin-top:20px">{{selected.title}}</h3>-->
+    <!--<div class="body" ng-bind-html="selected.body | trust"></div>-->
+    <!--</div>-->
     <table>
-        <tbody>
-        <tr ng-repeat="notice in notices  | orderBy : ['noti','id'] : true" ng-class="{noti:notice.noti}"
-            ng-click="select(notice)">
+        <tbody ng-repeat="notice in notices  | orderBy : ['noti','id'] : true" ng-class="{noti:notice.noti}"
+               ng-click="select(notice)">
+        <tr>
             <td style="width:55px;">
-                <span class="left"><svg fill="#ccc" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                        viewBox="0 0 24 24"><path
-                        d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z"/></svg></span>
+                <span class="left" ng-class="{selected:selected.id===notice.id}">
+                    <svg ng-if="selected.id!==notice.id" fill="#ccc" xmlns="http://www.w3.org/2000/svg"
+                         width="24" height="24"
+                         viewBox="0 0 24 24"><path
+                            d="M5 3l3.057-3 11.943 12-11.943 12-3.057-3 9-9z"/></svg>
+                    <svg ng-if="selected.id===notice.id" fill="#ccc" xmlns="http://www.w3.org/2000/svg" width="24"
+                         height="24" viewBox="0 0 24 24"><path
+                            d="M0 7.33l2.829-2.83 9.175 9.339 9.167-9.339 2.829 2.83-11.996 12.17z"/></svg>
+                </span>
             </td>
             <td scope="row" class="title">
                 <span>{{notice.title}}</span>
                 <span class="date">{{notice.updatedAt | date : "yyyy.MM.dd"}}</span>
+            </td>
+        </tr>
+        <tr ng-if="selected.id===notice.id">
+            <td colspan="2">
+                <div class="body" ng-bind-html="selected.body | trust"></div>
             </td>
         </tr>
         </tbody>
@@ -89,10 +98,15 @@
         'ngSanitize'
     ]);
     angular.module('app').controller('noticeCtrl', function ($scope, $http) {
+        $scope.notices = [];
         $http.get("/notice").then(function (res) {
             $scope.notices = res.data;
         });
         $scope.select = function (select) {
+            if (select === $scope.selected) {
+                $scope.selected = undefined;
+                return;
+            }
             $scope.selected = select;
         }
     });
