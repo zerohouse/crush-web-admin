@@ -64,9 +64,8 @@
     <!--<div class="body" ng-bind-html="selected.body | trust"></div>-->
     <!--</div>-->
     <table>
-        <tbody ng-repeat="notice in notices  | orderBy : ['noti','id'] : true" ng-class="{noti:notice.noti}"
-               ng-click="select(notice)">
-        <tr>
+        <tbody ng-repeat="notice in notices  | orderBy : ['noti','id'] : true" ng-class="{noti:notice.noti}">
+        <tr ng-click="select(notice)">
             <td style="width:55px;">
                 <span class="left" ng-class="{selected:selected.id===notice.id}">
                     <svg ng-if="selected.id!==notice.id" fill="#ccc" xmlns="http://www.w3.org/2000/svg"
