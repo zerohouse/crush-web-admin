@@ -24,6 +24,7 @@
             <th>상대방ID</th>
             <th>이름</th>
             <th>profile</th>
+            <th>날짜</th>
             <th>비고</th>
         </tr>
         </thead>
@@ -37,8 +38,8 @@
             <td>{{room.member.user_id}}</td>
             <td>{{room.member.nickname}}</td>
             <td><img ng-src="{{room.member.profile_url}}" class="max-200"></td>
-            <td><span class="btn btn-danger" ng-click="leaveChat(room, id, room.member.user_id)">나가기</span></td>
-            <td><span class="btn btn-danger" ng-click="deleteChat(room, room.channel_url)">삭제</span></td>
+            <td>{{room.createdAt | date}}</td>
+            <td><span class="btn btn-danger" ng-click="leaveChat(room, id, room.member.user_id)">나가기</span> <span class="btn btn-danger" ng-click="deleteChat(room, room.channel_url)">삭제</span></td>
         </tr>
         </tbody>
     </table>
